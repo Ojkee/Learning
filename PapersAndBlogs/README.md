@@ -4,7 +4,7 @@
 * [ ] The Unreasonable Effectiveness of Recurrent Neural Networks
 * [ ] Understanding LSTM Networks
 * [x] Recurrent Neural Network Regularization
-* [ ] Keeping Neural Networks Simple by Minimizing the Number of Weights
+* [-] Keeping Neural Networks Simple by Minimizing the Number of Weights
 * [ ] Pointer Networks
 * [x] ImageNet Classification with Deep Convolutional Neural Networks
 * [ ] Order Matters: Sequence to Sequence For Sets
@@ -35,6 +35,7 @@
 [[Attention Is All You Need]] - Eng -> PL Translator
 [[Recurrent Neural Network Regularization]]
 [[ImageNet. Classification with Deep Convolutional Networks]]
+[[Keeping Neural Networks Simple by Minimizing the Description Length of the Weights]] (on hold)
 
 ### Blogs
 [[The Annotated Transformer]]

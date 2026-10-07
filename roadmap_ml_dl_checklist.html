@@ -436,6 +436,7 @@
 <div class="page-header">
 <h1>ML/DL Career Roadmap</h1>
 <p>Sekwencyjna ścieżka nauki — wiesz zawsze co robić dalej</p>
+<p style="font-size:11px;margin-top:4px">📄 Lista Ilyi: #1–#27 = kolejność czytania · W = ważność, T = trudność (1–5, ocena orientacyjna)</p>
 <div class="legend">
 <div class="leg"><div class="leg-dot" style="background:#378ADD"></div>Kurs</div>
 <div class="leg"><div class="leg-dot" style="background:#7F77DD"></div>Paper</div>
@@ -448,7 +449,7 @@
 <nav class="toc">
 <a href="#p1">1 · DL od środka</a>
 <a href="#p2">2 · Transformer + CV + NEAT</a>
-<a href="#p3">3 · LLMs + RAG</a>
+<a href="#p3">3 · LLMs + MCP + RAG</a>
 <a href="#p4">4 · MLOps + SQL + Cloud</a>
 <a href="#p5">5 · AutoML + Magisterka + Interview</a>
 <a href="#p6">6 · Tło teoretyczne</a>
@@ -500,17 +501,21 @@
 </div>
 <div class="section type-paper">
 <div class="section-label">📄 Papiery z listy</div>
-<div class="section-title">Fundamenty — czytaj równolegle z kursami</div>
+<div class="section-title">Fundamenty — czytaj równolegle z kursami (#1–#8)</div>
 <ul class="item-list">
-<li><input data-id="item-17" type="checkbox"/><strong>Attention Is All You Need</strong> — Vaswani et al. 2017 (pierwsze czytanie)</li>
-<li><input data-id="item-18" type="checkbox"/><strong>The Annotated Transformer</strong> — Harvard NLP, implementacja krok po kroku</li>
-<li><input data-id="item-19" type="checkbox"/><strong>The Unreasonable Effectiveness of RNNs</strong> — Karpathy blog (przed Ep 2)</li>
-<li><input data-id="item-20" type="checkbox"/><strong>Understanding LSTM Networks</strong> — Olah (Chris Olah blog)</li>
-<li><input data-id="item-21" type="checkbox"/><strong>Recurrent Neural Networks Regularization</strong> — Zaremba et al.</li>
-<li><input data-id="item-22" type="checkbox"/><strong>ImageNet Classification with Deep CNNs</strong> — Krizhevsky (AlexNet 2012)</li>
-<li><input data-id="item-23" type="checkbox"/><strong>Keeping NNs Simple</strong> — Graves 2013 (MDL + minimum description)</li>
-<li><input data-id="item-24" type="checkbox"/><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank">The Illustrated Transformer — Jay Alammar ↗</a></li>
-<li><input data-id="item-25" type="checkbox"/><a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">Understanding LSTMs — Colah blog ↗</a></li>
+<li><input data-id="item-19" type="checkbox"/><strong>#1 The Unreasonable Effectiveness of RNNs</strong> — Karpathy (blog) · W4 T1</li>
+<li><input data-id="item-20" type="checkbox"/><strong>#2 Understanding LSTM Networks</strong> — Olah · W4 T1 · <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">blog ↗</a></li>
+<li><input data-id="item-55" type="checkbox"/><strong>#3 CS231n</strong> — notatki Stanford: backprop, optymalizacja, trening sieci, CNN · W4 T2</li>
+<li><input data-id="item-22" type="checkbox"/><strong>#4 ImageNet Classification with Deep CNNs</strong> — Krizhevsky 2012 (AlexNet) · W5 T2</li>
+<li><input data-id="item-21" type="checkbox"/><strong>#5 Recurrent Neural Network Regularization</strong> — Zaremba et al. · W3 T2</li>
+<li><input data-id="item-80" type="checkbox"/><strong>#6 Neural Machine Translation by Jointly Learning to Align and Translate</strong> — Bahdanau 2015 · W5 T3 (skąd wzięła się attention)</li>
+<li><input data-id="item-24" type="checkbox"/><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank">The Illustrated Transformer — Jay Alammar ↗</a> (przed #7)</li>
+<li><input data-id="item-17" type="checkbox"/><strong>#7 Attention Is All You Need</strong> — Vaswani et al. 2017 (pierwsze czytanie) · W5 T3</li>
+<li><input data-id="item-18" type="checkbox"/><strong>#8 The Annotated Transformer</strong> — Harvard NLP, implementacja krok po kroku · W4 T3</li>
+<li><strong>Przed fast.ai Part 2 — dodatki</strong></li>
+<li><input data-id="item-200" type="checkbox"/><strong>A Recipe for Training Neural Networks</strong> — Karpathy <a href="http://karpathy.github.io/2019/04/25/recipe/" target="_blank">blog ↗</a> · debugowanie treningu, przyda się w Part 2 i własnych projektach</li>
+<li><input data-id="item-201" type="checkbox"/><strong>BatchNorm</strong> (Ioffe &amp; Szegedy 2015) + <strong>inicjalizacja Kaiming</strong> (He et al. 2015) — opcjonalnie; Part 2 buduje to od fundamentów, a ResNet (#9) na tym stoi</li>
+<li><input data-id="item-202" type="checkbox"/><strong>Gotowość do Part 2</strong>: pętla treningowa w czystym PyTorch (Dataset/DataLoader, optimizer, loss) napisana bez fast.ai</li>
 </ul>
 <div class="tags"><span class="tag tag-paper">paper</span></div>
 </div>
@@ -586,14 +591,12 @@
 </div>
 <div class="section type-paper">
 <div class="section-label">📄 Papiery z listy</div>
-<div class="section-title">Computer Vision i głęboka architektura</div>
+<div class="section-title">Computer Vision i głęboka architektura (#9–#12)</div>
 <ul class="item-list">
-<li><input data-id="item-50" type="checkbox"/><strong>Deep Residual Learning</strong> — He et al. 2015 (ResNet) — czytaj razem z Lesson 10</li>
-<li><input data-id="item-51" type="checkbox"/><strong>Identity Mapping in Deep Residual Networks</strong> — He et al. 2016</li>
-<li><input data-id="item-52" type="checkbox"/><strong>Multi-Scale Context Aggregation by Dilated Convolutions</strong> — Yu &amp; Koltun</li>
-<li><input data-id="item-53" type="checkbox"/><strong>A Simple NN Module for Relational Reasoning</strong> — Santoro et al. 2017</li>
-<li><input data-id="item-54" type="checkbox"/><strong>GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism</strong></li>
-<li><input data-id="item-55" type="checkbox"/><strong>CS231n lecture notes</strong> — CNN for Visual Recognition (Stanford)</li>
+<li><input data-id="item-50" type="checkbox"/><strong>#9 Deep Residual Learning</strong> — He et al. 2015 (ResNet) · W5 T2 — czytaj razem z Lesson 10</li>
+<li><input data-id="item-51" type="checkbox"/><strong>#10 Identity Mappings in Deep Residual Networks</strong> — He et al. 2016 · W4 T3</li>
+<li><input data-id="item-52" type="checkbox"/><strong>#11 Multi-Scale Context Aggregation by Dilated Convolutions</strong> — Yu &amp; Koltun · W3 T3</li>
+<li><input data-id="item-53" type="checkbox"/><strong>#12 A Simple NN Module for Relational Reasoning</strong> — Santoro et al. 2017 · W3 T3</li>
 </ul>
 <div class="tags"><span class="tag tag-paper">paper</span></div>
 </div>
@@ -627,11 +630,11 @@
 <div class="phase-card p3">
 <div class="phase-header">
 <span class="phase-num">Faza 3</span>
-<span class="phase-title">LLMs głębiej + RAG Inspector</span>
-<span class="phase-duration">6–8 tygodni</span>
+<span class="phase-title">LLMs głębiej + MCP server + RAG Inspector</span>
+<span class="phase-duration">7–10 tygodni</span>
 </div>
 <div class="phase-desc">
-          Teraz masz kontekst żeby rozumieć LLMy naprawdę — nie jako black box. mlabonne/llm-course przeprowadza przez całą ścieżkę od tokenizacji przez fine-tuning (LoRA działa na Twoim GTX 1080 z 8 GB VRAM!) po RAG i agenty. HuggingFace NLP Course daje praktyczne hands-on. RAG Inspector finalnie staje się kompletnym projektem portfolio.
+          Teraz masz kontekst żeby rozumieć LLMy naprawdę — nie jako black box. mlabonne/llm-course przeprowadza przez całą ścieżkę od tokenizacji przez fine-tuning (LoRA działa na Twoim GTX 1080 z 8 GB VRAM!) po RAG i agenty. HuggingFace NLP Course daje praktyczne hands-on. Zanim zrobisz RAG Inspector, budujesz serwer MCP — uczy projektowania narzędzi dla LLM i później posłuży jako warstwa dostępu do RAG. RAG Inspector finalnie staje się kompletnym projektem portfolio.
         </div>
 <div class="sections">
 <div class="section type-kurs">
@@ -668,16 +671,52 @@
 </div>
 <div class="section type-paper">
 <div class="section-label">📄 Papiery z listy</div>
-<div class="section-title">LLM i Seq2Seq — drugie czytanie z pełnym kontekstem</div>
+<div class="section-title">LLM, skalowanie i pamięć (#13–#17)</div>
 <ul class="item-list">
-<li><input data-id="item-79" type="checkbox"/><strong>Attention Is All You Need</strong> — Vaswani (drugie, głębokie czytanie — rozumiesz teraz każdy wzór)</li>
-<li><input data-id="item-80" type="checkbox"/><strong>Neural Machine Translation by Jointly Learning to Align and Translate</strong> — Bahdanau 2015</li>
-<li><input data-id="item-81" type="checkbox"/><strong>Order Matters: Sequence to Sequence for Sets</strong> — Vinyals 2015</li>
-<li><input data-id="item-82" type="checkbox"/><strong>Neural Turing Machines</strong> — Graves et al. 2014</li>
-<li><input data-id="item-83" type="checkbox"/><strong>Scaling Laws for Neural LMs</strong> — Kaplan et al. 2020 (Chinchilla setup)</li>
-<li><input data-id="item-84" type="checkbox"/><strong>Deep Speech 2</strong> — End-to-End Speech Recognition (Baidu)</li>
+<li><input data-id="item-79" type="checkbox"/><strong>↻ #7 Attention Is All You Need</strong> — drugie, głębokie czytanie (rozumiesz teraz każdy wzór)</li>
+<li><input data-id="item-83" type="checkbox"/><strong>#13 Scaling Laws for Neural Language Models</strong> — Kaplan et al. 2020 · W5 T3 (follow-up spoza listy: Chinchilla, Hoffmann 2022)</li>
+<li><input data-id="item-54" type="checkbox"/><strong>#14 GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism</strong> — Huang et al. · W3 T3</li>
+<li><input data-id="item-82" type="checkbox"/><strong>#15 Neural Turing Machines</strong> — Graves et al. 2014 · W4 T4</li>
+<li><input data-id="item-128" type="checkbox"/><strong>#16 Relational Recurrent Neural Networks</strong> — Santoro et al. 2018 · W3 T4 (po #15)</li>
+<li><input data-id="item-84" type="checkbox"/><strong>#17 Deep Speech 2</strong> — Baidu, end-to-end ASR · W3 T3</li>
 </ul>
 <div class="tags"><span class="tag tag-paper">paper</span></div>
+</div>
+<div class="section type-kurs">
+<div class="section-label">🔌 MCP · research</div>
+<div class="section-title">Model Context Protocol — zanim zaczniesz budować</div>
+<ul class="item-list">
+<li><input data-id="item-203" type="checkbox"/><strong>Specyfikacja 2026-07-28</strong> (aktualna rewizja, zastąpiła 2025-11-25): <a href="https://modelcontextprotocol.io/specification/2026-07-28" target="_blank">spec ↗</a> · <a href="https://modelcontextprotocol.io/specification/2026-07-28/changelog" target="_blank">changelog ↗</a></li>
+<li><input data-id="item-204" type="checkbox"/><strong>Co się zmieniło</strong>: protokół bezstanowy (brak initialize i Mcp-Session-Id, wersja i capabilities w _meta), Multi Round-Trip Requests zamiast żądań serwer→klient, extensions (Tasks jako rozszerzenie), HTTP+SSE deprecated · <a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" target="_blank">blog ↗</a></li>
+<li><input data-id="item-205" type="checkbox"/><strong>Prymitywy</strong>: tools (woła model) vs resources (kontekst ładowany przez aplikację) vs prompts (szablony) — kiedy co</li>
+<li><input data-id="item-206" type="checkbox"/><strong>Kurs Anthropic: Introduction to MCP</strong> (Skilljar, darmowy) <a href="https://anthropic.skilljar.com/introduction-to-model-context-protocol" target="_blank">link ↗</a> → potem <strong>Advanced Topics</strong> <a href="https://anthropic.skilljar.com/model-context-protocol-advanced-topics" target="_blank">link ↗</a></li>
+<li><input data-id="item-207" type="checkbox"/><strong>Hugging Face MCP Course</strong> (z Anthropic; Unit 3 wymaga Claude Code) <a href="https://huggingface.co/learn/mcp-course" target="_blank">link ↗</a></li>
+<li><input data-id="item-208" type="checkbox"/><strong>DeepLearning.AI</strong>: MCP — Build Rich-Context AI Apps with Anthropic <a href="https://learn.deeplearning.ai/courses/mcp-build-rich-context-ai-apps-with-anthropic/lesson/fkbhh/introduction" target="_blank">link ↗</a></li>
+<li>⚠️ Część materiałów powstała przed 2026-07-28 i używa klasy FastMCP (SDK v1); w Python SDK v2 to MCPServer — przypnij wersję SDK i opieraj się na <a href="https://github.com/modelcontextprotocol/python-sdk" target="_blank">repo SDK ↗</a></li>
+<li><input data-id="item-210" type="checkbox"/><strong>Bezpieczeństwo</strong>: <a href="https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html" target="_blank">OWASP MCP Security Cheat Sheet ↗</a> + security best practices ze specyfikacji — tool poisoning, prompt injection przez wyniki narzędzi, SSRF, confused deputy, zbyt szerokie tokeny</li>
+<li><input data-id="item-211" type="checkbox"/><strong>Autoryzacja</strong>: OAuth 2.1 + PKCE, serwer HTTP jako resource server (w specyfikacji opcjonalna)</li>
+<li><input data-id="item-212" type="checkbox"/><strong>Istniejące serwery</strong>: <a href="https://modelcontextprotocol.io/registry" target="_blank">oficjalny rejestr ↗</a> — przeczytaj kod 2–3 serwerów, zanim zaprojektujesz własny</li>
+</ul>
+<div class="tags"><span class="tag tag-kurs">kurs</span><span class="tag tag-czytaj">czytaj</span></div>
+</div>
+<div class="section type-build">
+<div class="section-label">🔨 Budujesz</div>
+<div class="section-title">MCP Server — projekt przed RAG Inspector</div>
+<ul class="item-list">
+<li>Pomysł: serwer MCP nad Twoimi eksperymentami (symulacja wahadła / NEAT) — LLM uruchamia runy i czyta metryki. Temat do podmiany.</li>
+<li><input data-id="item-213" type="checkbox"/><strong>Zakres</strong>: 3–5 narzędzi (np. list_experiments, run_experiment, get_run_status, get_metrics) + resources z configami/wynikami + 1–2 prompty; oznacz narzędzia read-only vs zmieniające stan</li>
+<li><input data-id="item-214" type="checkbox"/><strong>Opisy i schematy</strong>: nazwy, opisy i JSON Schema narzędzi pisane dla modelu — to one decydują o jakości wywołań</li>
+<li><input data-id="item-215" type="checkbox"/><strong>SDK</strong>: Python SDK v2 (MCPServer), przypięta wersja; najpierw stdio lokalnie</li>
+<li><input data-id="item-216" type="checkbox"/><strong>Transport</strong>: Streamable HTTP w trybie bezstanowym (zgodnie z 2026-07-28)</li>
+<li><input data-id="item-217" type="checkbox"/><strong>Stan i długie zadania</strong>: brak sesji → jawny uchwyt (run_id) w argumentach; run_experiment zwraca run_id, status przez polling (opcjonalnie rozszerzenie Tasks)</li>
+<li><input data-id="item-218" type="checkbox"/><strong>Testy</strong>: <a href="https://github.com/modelcontextprotocol/inspector" target="_blank">MCP Inspector ↗</a> (tools/list, tools/call) + pytest + podpięcie pod prawdziwego klienta (Claude Desktop / Claude Code)</li>
+<li><input data-id="item-219" type="checkbox"/><strong>Bezpieczeństwo</strong>: walidacja wejść, allowlista ścieżek/URL, least privilege, wyniki narzędzi jako dane; test „wrogiego” rekordu z instrukcjami</li>
+<li><input data-id="item-220" type="checkbox"/><strong>Logi</strong>: audit log wywołań (narzędzie, argumenty, czas, correlation id)</li>
+<li><input data-id="item-221" type="checkbox"/><strong>Auth</strong> (opcjonalnie): OAuth 2.1 + PKCE dla zdalnego endpointu</li>
+<li><input data-id="item-222" type="checkbox"/><strong>Deploy</strong>: Dockerfile + zdalny endpoint (Render / HF Spaces)</li>
+<li><input data-id="item-223" type="checkbox"/><strong>README</strong> po angielsku: architektura, lista narzędzi, model zagrożeń, demo</li>
+</ul>
+<div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
 </div>
 <div class="section type-build">
 <div class="section-label">🔨 Budujesz</div>
@@ -690,6 +729,7 @@
 <li><input data-id="item-89" type="checkbox"/><strong>Generation</strong>: prompt template, context injection, hallucination guard</li>
 <li><input data-id="item-90" type="checkbox"/><strong>Ewaluacja</strong>: RAGAS metrics (context precision/recall, faithfulness)</li>
 <li><input data-id="item-91" type="checkbox"/><strong>Deploy</strong>: FastAPI endpoint + HuggingFace Spaces lub Render</li>
+<li><input data-id="item-224" type="checkbox"/><strong>MCP</strong> (opcjonalnie): wystaw retrieval RAG Inspectora jako narzędzie serwera MCP z poprzedniego projektu</li>
 <li><input data-id="item-92" type="checkbox"/><strong>README</strong>: architektura, wyniki ewaluacji, opis decyzji projektowych</li>
 </ul>
 <div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
@@ -754,6 +794,7 @@
 <li><input data-id="item-107" type="checkbox"/><strong>Vanilla GAN</strong>: generator + discriminator, loss landscape, mode collapse</li>
 <li><input data-id="item-108" type="checkbox"/><strong>DCGAN</strong>: conv architektura, BatchNorm, upsampling strategia</li>
 <li><input data-id="item-109" type="checkbox"/><strong>Conditional GAN</strong>: class conditioning przez concatenation</li>
+<li><input data-id="item-127" type="checkbox"/><strong>#18 Variational Lossy Autoencoder</strong> — Chen et al. 2016 · W3 T4 — czytaj po VAE z Fazy 2, przed InfoGAN</li>
 <li><input data-id="item-110" type="checkbox"/><strong>InfoGAN</strong>: latent space control, mutual information maximization</li>
 <li><input data-id="item-111" type="checkbox"/><strong>Ewaluacja</strong>: FID score (Frechet Inception Distance) — standardowa metryka</li>
 <li><input data-id="item-112" type="checkbox"/>Wandb albo MLflow logging — wszystkie runy widoczne w dashboard</li>
@@ -814,14 +855,12 @@
 </div>
 <div class="section type-paper">
 <div class="section-label">📄 Papiery z listy</div>
-<div class="section-title">Zaawansowane — bliżej magisterki</div>
+<div class="section-title">Papiery z listy — pod magisterkę GNN + RL (#19–#21)</div>
 <ul class="item-list">
-<li><input data-id="item-126" type="checkbox"/><strong>Pointer Networks</strong> — Vinyals et al. 2015 (kluczowy dla TSP/VRP)</li>
-<li><input data-id="item-127" type="checkbox"/><strong>Variational Lossy Autoencoder</strong> — Chen et al.</li>
-<li><input data-id="item-128" type="checkbox"/><strong>Relational RNNs</strong> — Santoro et al. 2018</li>
-<li><input data-id="item-129" type="checkbox"/><strong>Quantifying Rise and Fall of Complexity</strong> — Coffee Automaton paper</li>
-<li><input data-id="item-130" type="checkbox"/><strong>Neural Quantum Chemistry</strong> — Schütt et al.</li>
-<li><input data-id="item-131" type="checkbox"/><strong>A Tutorial Intro to MDL Principle</strong> — Grünwald</li>
+<li><input data-id="item-126" type="checkbox"/><strong>#19 Pointer Networks</strong> — Vinyals et al. 2015 · W5 T3 (baseline dla TSP/VRP)</li>
+<li><input data-id="item-81" type="checkbox"/><strong>#20 Order Matters: Sequence to Sequence for Sets</strong> — Vinyals et al. 2015 · W3 T3</li>
+<li><input data-id="item-130" type="checkbox"/><strong>#21 Neural Message Passing for Quantum Chemistry</strong> — Gilmer et al. 2017 (MPNN) · W5 T4 (rama pod GNN)</li>
+<li>Jeśli literatura do magisterki tego wymaga, #19–#21 możesz wciągnąć wcześniej.</li>
 </ul>
 <div class="tags"><span class="tag tag-paper">paper</span></div>
 </div>
@@ -849,6 +888,7 @@
 <li><input data-id="item-142" type="checkbox"/><strong>NEAT implementation</strong>: opis algorytmu, benchmark na środowiskach, wizualizacje</li>
 <li><input data-id="item-143" type="checkbox"/><strong>Symulacje fizyczne</strong>: opis problemu, jak działa sieć, wyniki treningu</li>
 <li><input data-id="item-144" type="checkbox"/><strong>GAN projekt</strong>: FID scores, przykłady generacji, latent interpolation</li>
+<li><input data-id="item-225" type="checkbox"/><strong>MCP server</strong>: README po angielsku, lista narzędzi, model zagrożeń, demo</li>
 <li><input data-id="item-145" type="checkbox"/>LinkedIn (angielski): linki do projektów, opis stack'u, open to work</li>
 <li><input data-id="item-146" type="checkbox"/>Kaggle: min. 2 submissje z write-upem (pozycja nie ma znaczenia)</li>
 </ul>
@@ -875,20 +915,18 @@
 <span class="phase-title">Tło teoretyczne i śledzenie pola</span>
 <span class="phase-duration">po trochu, bez presji</span>
 </div>
-<div class="always-note">
-          Nie ma tu kolejności — czytasz kiedy masz ochotę, kiedy temat koresponduje z czymś co właśnie robisz. Kolmogorov i MDL przy magisterce. Machine Super Intelligence wieczorem przy kawie. Arxiv sanity — tydzień w tydzień, 10 minut.
-        </div>
+<div class="always-note">Papiery #22–#27 mają sugerowaną kolejność (od najłatwiejszych), ale bez presji — czytasz, gdy temat koresponduje z tym, co robisz. MDL i Kolmogorov przy magisterce. Machine Super Intelligence wieczorem przy kawie. Arxiv sanity — tydzień w tydzień, 10 minut.</div>
 <div class="sections">
 <div class="section type-paper">
 <div class="section-label">📄 Filozofia i teoria AI</div>
-<div class="section-title">Głębsze tło z listy papierów</div>
+<div class="section-title">Teoria informacji i złożoność (#22–#27)</div>
 <ul class="item-list">
-<li><input data-id="item-147" type="checkbox"/><strong>The First Law of Complexodynamics</strong> — Aaronson</li>
-<li><input data-id="item-148" type="checkbox"/><strong>Machine Super Intelligence</strong> — Schmidhuber (długi, ale warto)</li>
-<li><input data-id="item-149" type="checkbox"/><strong>Kolmogorov Complexity and Algorithmic Randomness</strong> — Li &amp; Vitányi</li>
-<li><input data-id="item-150" type="checkbox"/><strong>A Tutorial Introduction to the MDL Principle</strong> — Grünwald</li>
-<li><input data-id="item-151" type="checkbox"/><strong>Neural Quantum Chemistry</strong> — Schütt et al.</li>
-<li><input data-id="item-152" type="checkbox"/><strong>Quantifying Rise and Fall of Complexity</strong> — Coffee Automaton</li>
+<li><input data-id="item-147" type="checkbox"/><strong>#22 The First Law of Complexodynamics</strong> — Aaronson (blog) · W2 T2</li>
+<li><input data-id="item-148" type="checkbox"/><strong>#23 Machine Super Intelligence</strong> — Shane Legg, praca doktorska 2008 (długa; wybrane rozdziały) · W2 T3</li>
+<li><input data-id="item-152" type="checkbox"/><strong>#24 Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton</strong> — Aaronson et al. · W2 T4 (po #22)</li>
+<li><input data-id="item-150" type="checkbox"/><strong>#25 A Tutorial Introduction to the MDL Principle</strong> — Grünwald · W3 T4</li>
+<li><input data-id="item-23" type="checkbox"/><strong>#26 Keeping Neural Networks Simple by Minimizing the Description Length of the Weights</strong> — Hinton &amp; van Camp 1993 · W3 T5 (wróć po #25; zdjęte z Fazy 1)</li>
+<li><input data-id="item-149" type="checkbox"/><strong>#27 Kolmogorov Complexity and Algorithmic Randomness</strong> — Shen, Uspensky, Vereshchagin (książka; wybrane rozdziały) · W3 T5</li>
 </ul>
 <div class="tags"><span class="tag tag-paper">paper</span></div>
 </div>

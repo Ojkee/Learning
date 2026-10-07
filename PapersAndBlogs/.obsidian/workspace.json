@@ -6,7 +6,7 @@
       {
         "id": "393262e164c1e2d5",
         "type": "tabs",
-        "dimension": 39.30885529157667,
+        "dimension": 35.961123110151185,
         "children": [
           {
             "id": "7e702dc8badba43c",
@@ -14,35 +14,35 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/Keeping Neural Networks Simple by Minimizing the Description Length of the Weights.md",
+                "file": "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural Machine Translation by jointly learning to align and translate.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Keeping Neural Networks Simple by Minimizing the Description Length of the Weights"
+              "title": "Neural Machine Translation by jointly learning to align and translate"
             }
           }
         ]
       },
       {
-        "id": "2b2a50a217116650",
+        "id": "4fce5977c275a133",
         "type": "tabs",
-        "dimension": 60.69114470842332,
+        "dimension": 64.03887688984882,
         "children": [
           {
-            "id": "51d2a4a80414b955",
+            "id": "568f994bde662f2f",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/Keeping-Neural-Networks-Simple-by-Minimizing-the-Description-Length-of-the-Weights.pdf",
+                "file": "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate.pdf",
                 "page": 2,
                 "left": -11,
-                "top": 39,
-                "zoom": 1.3137254901960786
+                "top": 553,
+                "zoom": 1.3897058823529411
               },
               "icon": "lucide-file-text",
-              "title": "Keeping-Neural-Networks-Simple-by-Minimizing-the-Description-Length-of-the-Weights"
+              "title": "Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate"
             }
           }
         ]
@@ -79,7 +79,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "KL",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -107,7 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 373.09765625,
+    "width": 378.76171875,
     "collapsed": true
   },
   "right": {
@@ -218,9 +218,15 @@
   },
   "active": "7e702dc8badba43c",
   "lastOpenFiles": [
-    "Papers/2. Recurrent Neural Network Regularization/Recurrent Neural Network Regularization.md",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate.pdf",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural Machine Translation by jointly learning to align and translate.md",
+    "Blogs/1. The Annotated Transformer/The Annotated Transformer.md",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/imgs",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/Untitled.md",
     "README.md",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate",
     "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/Keeping Neural Networks Simple by Minimizing the Description Length of the Weights.md",
+    "Papers/2. Recurrent Neural Network Regularization/Recurrent Neural Network Regularization.md",
     "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/Keeping-Neural-Networks-Simple-by-Minimizing-the-Description-Length-of-the-Weights.pdf",
     "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/imgs",
     "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/imgs/Pasted image 20260921211636.png",
@@ -234,7 +240,6 @@
     "Papers/1. Attention Is All You Need/Attention Is All You Need.md",
     "Papers/2. Recurrent Neural Network Regularization/Recurrent-Neaural-Network-Regularization.pdf",
     "Blogs/3. Understanding LSTM Networks/Understanding LSTM Networks.md",
-    "Papers/2. Recurrent Neural Network Regularization/model_lstm_drouput.py",
     "00_Reading-List.png",
     "Blogs/2. The Unreasonable Effectiveness of Recurrent Neural Networks/The Unreasonable Effectiveness of Recurrent Neural Networks.md",
     "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819132120.png",
@@ -242,12 +247,9 @@
     "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819120007.png",
     "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819120303.png",
     "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819120327.png",
-    "Papers/2. Recurrent Neural Network Regularization/imgs",
-    "Papers/2. Recurrent Neural Network Regularization",
     "Blogs/3. Understanding LSTM Networks/data/README.md",
     "Blogs/3. Understanding LSTM Networks/imgs/Pasted image 20260816211049.png",
     "Blogs/3. Understanding LSTM Networks/imgs/Pasted image 20260816210926.png",
-    "Blogs/1. The Annotated Transformer/The Annotated Transformer.md",
     "Blogs/1. The Annotated Transformer/Beam Search.md",
     "Papers/1. Attention Is All You Need/foo.ipynb.md",
     "Papers/1. Attention Is All You Need/Foo.md",
