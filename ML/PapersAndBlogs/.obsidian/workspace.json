@@ -1,0 +1,266 @@
+{
+  "main": {
+    "id": "2109840f61deeab1",
+    "type": "split",
+    "children": [
+      {
+        "id": "393262e164c1e2d5",
+        "type": "tabs",
+        "dimension": 35.961123110151185,
+        "children": [
+          {
+            "id": "7e702dc8badba43c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural Machine Translation by jointly learning to align and translate.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Neural Machine Translation by jointly learning to align and translate"
+            }
+          }
+        ]
+      },
+      {
+        "id": "4fce5977c275a133",
+        "type": "tabs",
+        "dimension": 64.03887688984882,
+        "children": [
+          {
+            "id": "568f994bde662f2f",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate.pdf",
+                "page": 3,
+                "left": -11,
+                "top": 583,
+                "zoom": 1.3897058823529411
+              },
+              "icon": "lucide-file-text",
+              "title": "Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "43e6965a278f7b8f",
+    "type": "split",
+    "children": [
+      {
+        "id": "b43f03a58f36eb90",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2dcd8da318af1423",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6c5796773b85e591",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "52970ee91f28a99e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 378.76171875,
+    "collapsed": true
+  },
+  "right": {
+    "id": "225591f305f275ba",
+    "type": "split",
+    "children": [
+      {
+        "id": "532018d5575b6cd4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "74e07608a0d92df6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Blogs/3. Understanding LSTM Networks/Understanding LSTM Networks.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "ac8a26a038446257",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Mixing-ADAM-and-SGD-a-Combined-Optimization-Method.pdf",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "d0f3e9240fbfd014",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7ebc47ea98c65be0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "3966ee307ea4d51f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Mixing-ADAM-and-SGD-a-Combined-Optimization-Method.pdf",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
+    }
+  },
+  "active": "7e702dc8badba43c",
+  "lastOpenFiles": [
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate.pdf",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural Machine Translation by jointly learning to align and translate.md",
+    "Blogs/1. The Annotated Transformer/The Annotated Transformer.md",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/imgs",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate/Untitled.md",
+    "README.md",
+    "Papers/5. Neural Machine Translation by jointly learning to align and translate",
+    "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/Keeping Neural Networks Simple by Minimizing the Description Length of the Weights.md",
+    "Papers/2. Recurrent Neural Network Regularization/Recurrent Neural Network Regularization.md",
+    "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/Keeping-Neural-Networks-Simple-by-Minimizing-the-Description-Length-of-the-Weights.pdf",
+    "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/imgs",
+    "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights/imgs/Pasted image 20260921211636.png",
+    "Blogs/1. The Annotated Transformer/Kullback–Leibler divergence.md",
+    "Papers/3. ImageNet Classification with Deep Convolutional Neural Network/ImageNet-Classification-with-Deep-Convolutional-Networks.pdf",
+    "Papers/4. Keeping Neural Networks Simple by Minimizing the Description Length of the Weights",
+    "Papers/3. ImageNet Classification with Deep Convolutional Neural Network/ImageNet. Classification with Deep Convolutional Networks.md",
+    "Papers/3. ImageNet Classification with Deep Convolutional Neural Network/imgs",
+    "Papers/3. ImageNet Classification with Deep Convolutional Neural Network/imgs/Pasted image 20260827190721.png",
+    "Papers/3. ImageNet Classification with Deep Convolutional Neural Network",
+    "Papers/1. Attention Is All You Need/Attention Is All You Need.md",
+    "Papers/2. Recurrent Neural Network Regularization/Recurrent-Neaural-Network-Regularization.pdf",
+    "Blogs/3. Understanding LSTM Networks/Understanding LSTM Networks.md",
+    "00_Reading-List.png",
+    "Blogs/2. The Unreasonable Effectiveness of Recurrent Neural Networks/The Unreasonable Effectiveness of Recurrent Neural Networks.md",
+    "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819132120.png",
+    "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819121630.png",
+    "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819120007.png",
+    "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819120303.png",
+    "Papers/2. Recurrent Neural Network Regularization/imgs/Pasted image 20260819120327.png",
+    "Blogs/3. Understanding LSTM Networks/data/README.md",
+    "Blogs/3. Understanding LSTM Networks/imgs/Pasted image 20260816211049.png",
+    "Blogs/3. Understanding LSTM Networks/imgs/Pasted image 20260816210926.png",
+    "Blogs/1. The Annotated Transformer/Beam Search.md",
+    "Papers/1. Attention Is All You Need/foo.ipynb.md",
+    "Papers/1. Attention Is All You Need/Foo.md",
+    "The Annotated Transformer.md",
+    "Neural Machine Translation by Jointly Learning to Align and Translate/Neural Machine Translation by Jointly Learning to Align and Translate.md",
+    "Done Papers/Keeping Neural Networks Simple by Minimizing the Description Length of the Weights.md",
+    "Done Papers/Multi-Scale Context Aggregation by Dilated Convolutions.md",
+    "Done Papers/Deep Residual learning for Image Recognition.md",
+    "Done Papers/ImageNet Classification with Deep Convolutional Neural Networks.md",
+    "Done Papers/GPipe Easy Scaling with Micro-Batch Pipeline Parallelism.md",
+    "The Annotated Transformer/The Annotated Transformer.md",
+    "The First Law of Complexodynamics/The First Law of Complexodynamics.md"
+  ]
+}
