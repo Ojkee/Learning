@@ -1,10 +1,11 @@
 Logging commit history:
 ```bash
-git log --oneline --parents --graph
+git log --oneline --parents --graph -p
 ```
 `--oneline` shows commit in single-line format.
 `--parents` shows parents of commit.
 `--graph` shows graphically how commits were marged.
+`-p` shows the differences
 
 Shows who made a commit, when the commit was made and what was changed.
 
