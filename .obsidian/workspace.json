@@ -190,6 +190,10 @@
   },
   "active": "91f17799a542a3c2",
   "lastOpenFiles": [
+    "Git/Push.md",
+    "Git/Pull.md",
+    "Git/GitHub.md",
+    "Git/README.md",
     "Git/Merge.md",
     "Git/Fetch.md",
     "Git/Remote.md",
@@ -197,7 +201,6 @@
     "Git/Origin.md",
     "Git/Index.md",
     "Git/Hashes.md",
-    "Git/README.md",
     "Git/Rebase.md",
     "learning_roadmap.html",
     "Deep Learning/PapersAndBlogs/Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate.pdf",
