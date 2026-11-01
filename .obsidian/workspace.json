@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git/README.md",
+                "file": "Git/Reset.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Reset"
             }
           }
         ]
@@ -190,6 +190,10 @@
   },
   "active": "91f17799a542a3c2",
   "lastOpenFiles": [
+    "Git/Index.md",
+    "Git/Hashes.md",
+    "Git/Reset.md",
+    "Git/README.md",
     "Git/Rebase.md",
     "learning_roadmap.html",
     "Git/Merge.md",
@@ -204,16 +208,13 @@
     "imgs/Pasted image 20261029104619.png",
     "imgs/Pasted image 20261029104633.png",
     "Git/Fast Forward Merge.md",
-    "Git/README.md",
     "imgs/Pasted image 20261028121024.png",
     "Git/Config.md",
     "imgs",
     "Git/zzimgs.md",
     "imgs/Pasted image 20261027181259.png",
     "Git/Repository.md",
-    "Git/Index.md",
     "Git/Status.md",
-    "Git/Hashes.md",
     "Git/Adding.md",
     "Untitled.md"
   ]
