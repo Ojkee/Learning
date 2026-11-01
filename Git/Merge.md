@@ -37,9 +37,3 @@ Merge made by the 'ort' strategy.
 * 1a35221 A: add contents.md
 ```
 
-### After merging the branch
-We no longer need the branch we merged into main, so delete it with
-```bash
-
-```
-

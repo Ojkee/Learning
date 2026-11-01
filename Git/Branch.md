@@ -43,3 +43,30 @@ Switched to branch 'add_classics'
 * add_classics   main
 ```
 
+### Create and switch branch of given commit
+```bash
+❯ git --no-pager log --oneline
+f8b6359 (HEAD -> main, update_titles) G: updated titles.md with one title
+6e27cb6 F: Merge branch 'add_classics'
+5dbf0b9 E: filled the contents.md
+a7fe6b1 (add_classics) D: added classics csv # We will use that commit
+0ef1c9e C: add quotes
+9afb07f B: add titles
+1a35221 A: add contents.md
+
+						  # VVVVVVV commits hash
+❯ git switch -c update_dune a7fe6b1
+Switched to a new branch 'update_dune'
+```
+
+### After merging the branch
+We no longer need the branch we merged into main, so delete it with
+```bash
+❯ git branch -d add_classics
+Deleted branch add_classics (was a7fe6b1).
+
+❯ git branch -D update_titles
+Deleted branch update_titles (was f8b6359).
+```
+`-d` delete
+`-D` force delete

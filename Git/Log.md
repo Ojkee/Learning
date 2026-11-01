@@ -7,6 +7,11 @@ git log --oneline --parents --graph -p
 `--graph` shows graphically how commits were marged.
 `-p` shows the differences
 
+```bash
+git log --oneline --graph <branch_1> <branch_2> ... <branch_n>
+```
+You can specify branches (by names) while graphing.
+
 Shows who made a commit, when the commit was made and what was changed.
 
 ```bash

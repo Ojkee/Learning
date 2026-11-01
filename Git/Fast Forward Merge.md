@@ -2,10 +2,10 @@ If the target [[Branch|branch]] (e.g. main) has no new [[Commit|commits]] since 
 
 ```
 Before:  A---B  (main)
-             \
-              C---D  (feature)
+              \
+               C---D  (feature)
 
-After:     A---B---C---D  (main, feature)
+After:   A---B---C---D  (main, feature
 ```
 
 

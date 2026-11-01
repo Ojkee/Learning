@@ -448,10 +448,10 @@
 <div class="content">
 <nav class="toc">
 <a href="#p1">1 · DL od środka</a>
-<a href="#p2">2 · Transformer + CV + NEAT</a>
-<a href="#p3">3 · LLMs + MCP + RAG</a>
-<a href="#p4">4 · MLOps + SQL + Cloud</a>
-<a href="#p5">5 · AutoML + Magisterka + Interview</a>
+<a href="#p2">2 · Transformer + CV + RL + magisterka</a>
+<a href="#p3">3 · LLMs + RAG + MCP</a>
+<a href="#p4">4 · MLOps + SQL + Whiteboard</a>
+<a href="#p5">5 · Magisterka + Interview</a>
 <a href="#p6">6 · Tło teoretyczne</a>
 </nav>
 <div class="timeline">
@@ -462,25 +462,37 @@
 <div class="phase-header">
 <span class="phase-num">Faza 1</span>
 <span class="phase-title">Deep Learning od środka</span>
-<span class="phase-duration">4–6 tygodni</span>
 </div>
 <div class="phase-desc">
-          Zaczynasz tutaj. Karpathy i fast.ai robisz <strong>równolegle</strong> — Karpathy daje rozumienie od zera (backprop ręcznie, własny autograd), fast.ai daje szeroki widok aplikacji. Równolegle czytasz kluczowe papiery z listy — masz do nich kontekst bo widzisz kod. Na koniec: budujesz własną sieć od zera i podpinasz ją pod swój projekt symulacji.
+          Karpathy i fast.ai Part 1 masz za sobą — zostają papiery i blogi z listy, Git oraz książka Goodfellowa jako teoria równoległa do kodu. Fast.ai Part 2 idzie obok kolejnych faz. Powstaje tu też abstrakcyjny framework wizualizacji (interfejsy Simulation i Model), na którym uruchomisz eksperymenty RL.
         </div>
 <div class="sections">
+<div class="section type-kurs">
+<div class="section-label">🛠 Narzędzie · wideo</div>
+<div class="section-title">Git — kurs wideo (boot.dev × ThePrimeagen)</div>
+<ul class="item-list">
+<li><input data-id="item-300" type="checkbox"/><a href="https://www.youtube.com/watch?v=rH3zE7VlIMs" target="_blank">Kurs wideo ↗</a> · ⏳ w trakcie</li>
+<li><input data-id="item-301" type="checkbox"/><strong>Model wewnętrzny</strong>: blob / tree / commit / ref — czym naprawdę jest commit</li>
+<li><input data-id="item-302" type="checkbox"/><strong>Gałęzie</strong>: merge vs rebase, fast-forward, konflikty</li>
+<li><input data-id="item-303" type="checkbox"/><strong>Ratunek</strong>: reflog, reset (soft/mixed/hard), restore, stash, bisect</li>
+<li><input data-id="item-304" type="checkbox"/><strong>Zespół</strong>: PR flow, worktrees, pre-commit hooks</li>
+<li><input data-id="item-305" type="checkbox"/><strong>Pod ML</strong>: git-lfs i DVC dla danych i wag (wraca w fazie 4)</li>
+</ul>
+<div class="tags"><span class="tag tag-kurs">kurs</span></div>
+</div>
 <div class="section type-kurs">
 <div class="section-label">🎬 Kurs · wideo</div>
 <div class="section-title">Karpathy: Neural Networks Zero to Hero</div>
 <ul class="item-list">
-<li><input data-id="item-0" type="checkbox"/><strong>Ep 1</strong> — micrograd: autograd engine od zera, DAG, reverse-mode autodiff</li>
-<li><input data-id="item-1" type="checkbox"/><strong>Ep 2</strong> — makemore part 1: bigram LM, torch.Tensor</li>
-<li><input data-id="item-2" type="checkbox"/><strong>Ep 3</strong> — makemore part 2: MLP, train/val/test split, underfitting</li>
-<li><input data-id="item-3" type="checkbox"/><strong>Ep 4</strong> — makemore part 3: BatchNorm, init, diagnostics narzędzia</li>
-<li><input data-id="item-4" type="checkbox"/><strong>Ep 5</strong> — backprop ręcznie przez MLP bez autograd</li>
-<li><input data-id="item-5" type="checkbox"/><strong>Ep 6</strong> — makemore part 5: WaveNet-style CNN hierarchicznie</li>
-<li><input data-id="item-6" type="checkbox"/><strong>Ep 7</strong> — nanoGPT: Transformer od zera, attention, residual</li>
-<li><input data-id="item-7" type="checkbox"/><strong>Ep 8</strong> — GPT Tokenizer: BPE od zera</li>
-<li><input data-id="item-8" type="checkbox"/><a href="https://karpathy.ai/zero-to-hero.html" target="_blank">karpathy.ai/zero-to-hero ↗</a></li>
+<li><input data-id="item-0" type="checkbox" checked/><strong>Ep 1</strong> — micrograd: autograd engine od zera, DAG, reverse-mode autodiff</li>
+<li><input data-id="item-1" type="checkbox" checked/><strong>Ep 2</strong> — makemore part 1: bigram LM, torch.Tensor</li>
+<li><input data-id="item-2" type="checkbox" checked/><strong>Ep 3</strong> — makemore part 2: MLP, train/val/test split, underfitting</li>
+<li><input data-id="item-3" type="checkbox" checked/><strong>Ep 4</strong> — makemore part 3: BatchNorm, init, diagnostics narzędzia</li>
+<li><input data-id="item-4" type="checkbox" checked/><strong>Ep 5</strong> — backprop ręcznie przez MLP bez autograd</li>
+<li><input data-id="item-5" type="checkbox" checked/><strong>Ep 6</strong> — makemore part 5: WaveNet-style CNN hierarchicznie</li>
+<li><input data-id="item-6" type="checkbox" checked/><strong>Ep 7</strong> — nanoGPT: Transformer od zera, attention, residual</li>
+<li><input data-id="item-7" type="checkbox" checked/><strong>Ep 8</strong> — GPT Tokenizer: BPE od zera</li>
+<li><input data-id="item-8" type="checkbox" checked/><a href="https://karpathy.ai/zero-to-hero.html" target="_blank">karpathy.ai/zero-to-hero ↗</a></li>
 </ul>
 <div class="tags"><span class="tag tag-kurs">kurs</span></div>
 </div>
@@ -488,14 +500,14 @@
 <div class="section-label">📚 Kurs · interaktywny</div>
 <div class="section-title">fast.ai Part 1: Practical Deep Learning for Coders</div>
 <ul class="item-list">
-<li><input data-id="item-9" type="checkbox"/><strong>Lesson 1–2</strong>: ResNet image classifier, deploy w Kaggle/HF Spaces</li>
-<li><input data-id="item-10" type="checkbox"/><strong>Lesson 3–4</strong>: Data augmentation, Transfer learning, fine-tuning</li>
-<li><input data-id="item-11" type="checkbox"/><strong>Lesson 5</strong>: From-scratch NLP model z tabular data</li>
-<li><input data-id="item-12" type="checkbox"/><strong>Lesson 6</strong>: Random forests vs deep learning — kiedy co</li>
-<li><input data-id="item-13" type="checkbox"/><strong>Lesson 7</strong>: Collaborative filtering (embedding approach)</li>
-<li><input data-id="item-14" type="checkbox"/><strong>Lesson 8</strong>: Convolutions from scratch</li>
-<li><input data-id="item-15" type="checkbox"/><strong>Lesson 9</strong>: Training fundamentals — learning rate finder, 1cycle</li>
-<li><input data-id="item-16" type="checkbox"/><a href="https://course.fast.ai" target="_blank">course.fast.ai ↗</a></li>
+<li><input data-id="item-9" type="checkbox" checked/><strong>Lesson 1–2</strong>: ResNet image classifier, deploy w Kaggle/HF Spaces</li>
+<li><input data-id="item-10" type="checkbox" checked/><strong>Lesson 3–4</strong>: Data augmentation, Transfer learning, fine-tuning</li>
+<li><input data-id="item-11" type="checkbox" checked/><strong>Lesson 5</strong>: From-scratch NLP model z tabular data</li>
+<li><input data-id="item-12" type="checkbox" checked/><strong>Lesson 6</strong>: Random forests vs deep learning — kiedy co</li>
+<li><input data-id="item-13" type="checkbox" checked/><strong>Lesson 7</strong>: Collaborative filtering (embedding approach)</li>
+<li><input data-id="item-14" type="checkbox" checked/><strong>Lesson 8</strong>: Convolutions from scratch</li>
+<li><input data-id="item-15" type="checkbox" checked/><strong>Lesson 9</strong>: Training fundamentals — learning rate finder, 1cycle</li>
+<li><input data-id="item-16" type="checkbox" checked/><a href="https://course.fast.ai" target="_blank">course.fast.ai ↗</a></li>
 </ul>
 <div class="tags"><span class="tag tag-kurs">kurs</span></div>
 </div>
@@ -506,11 +518,11 @@
 <li><input data-id="item-19" type="checkbox"/><strong>#1 The Unreasonable Effectiveness of RNNs</strong> — Karpathy (blog) · W4 T1</li>
 <li><input data-id="item-20" type="checkbox"/><strong>#2 Understanding LSTM Networks</strong> — Olah · W4 T1 · <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank">blog ↗</a></li>
 <li><input data-id="item-55" type="checkbox"/><strong>#3 CS231n</strong> — notatki Stanford: backprop, optymalizacja, trening sieci, CNN · W4 T2</li>
-<li><input data-id="item-22" type="checkbox"/><strong>#4 ImageNet Classification with Deep CNNs</strong> — Krizhevsky 2012 (AlexNet) · W5 T2</li>
-<li><input data-id="item-21" type="checkbox"/><strong>#5 Recurrent Neural Network Regularization</strong> — Zaremba et al. · W3 T2</li>
-<li><input data-id="item-80" type="checkbox"/><strong>#6 Neural Machine Translation by Jointly Learning to Align and Translate</strong> — Bahdanau 2015 · W5 T3 (skąd wzięła się attention)</li>
+<li><input data-id="item-22" type="checkbox" checked/><strong>#4 ImageNet Classification with Deep CNNs</strong> — Krizhevsky 2012 (AlexNet) · W5 T2</li>
+<li><input data-id="item-21" type="checkbox" checked/><strong>#5 Recurrent Neural Network Regularization</strong> — Zaremba et al. · W3 T2</li>
+<li><input data-id="item-80" type="checkbox"/><strong>#6 Neural Machine Translation by Jointly Learning to Align and Translate</strong> — Bahdanau 2015 · W5 T3 (skąd wzięła się attention) · ⏳ w trakcie</li>
 <li><input data-id="item-24" type="checkbox"/><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank">The Illustrated Transformer — Jay Alammar ↗</a> (przed #7)</li>
-<li><input data-id="item-17" type="checkbox"/><strong>#7 Attention Is All You Need</strong> — Vaswani et al. 2017 (pierwsze czytanie) · W5 T3</li>
+<li><input data-id="item-17" type="checkbox" checked/><strong>#7 Attention Is All You Need</strong> — Vaswani et al. 2017 (pierwsze czytanie) · W5 T3</li>
 <li><input data-id="item-18" type="checkbox"/><strong>#8 The Annotated Transformer</strong> — Harvard NLP, implementacja krok po kroku · W4 T3</li>
 <li><strong>Przed fast.ai Part 2 — dodatki</strong></li>
 <li><input data-id="item-200" type="checkbox"/><strong>A Recipe for Training Neural Networks</strong> — Karpathy <a href="http://karpathy.github.io/2019/04/25/recipe/" target="_blank">blog ↗</a> · debugowanie treningu, przyda się w Part 2 i własnych projektach</li>
@@ -521,16 +533,29 @@
 </div>
 <div class="section type-build">
 <div class="section-label">🔨 Budujesz</div>
-<div class="section-title">Projekt: symulacje + własna sieć neuronowa</div>
+<div class="section-title">Framework wizualizacji: interfejsy Simulation + Model</div>
 <ul class="item-list">
-<li><input data-id="item-26" type="checkbox"/>Double pendulum — Lagrangian ✓ (już zrobione)</li>
+<li><input data-id="item-26" type="checkbox" checked/>Przykładowa symulacja: double pendulum (Lagrangian) ✓ — to tylko implementacja interfejsu, nie cel projektu</li>
 <li><input data-id="item-27" type="checkbox"/>Własna sieć od zera w czystym NumPy (równolegle z Ep 1–3)</li>
-<li><input data-id="item-28" type="checkbox"/>Backprop ręcznie z gradientsami — zrozum każdy krok</li>
-<li><input data-id="item-29" type="checkbox"/>Interfejs config: wybór modelu, podpięcie symulacji</li>
-<li><input data-id="item-30" type="checkbox"/>Pierwsze pytanie: czy sieć może cokolwiek nauczyć się z fizyki?</li>
-<li><input data-id="item-31" type="checkbox"/>Wizualizacja loss curves, gradientów (diagnostics jak w Ep 4)</li>
+<li><input data-id="item-28" type="checkbox"/>Backprop ręcznie z gradientami — zrozum każdy krok</li>
+<li><input data-id="item-29" type="checkbox"/><strong>Interfejsy bazowe</strong>: Simulation (reset / step / state / reward) i Model (act / update); wizualizacja zna tylko interfejsy</li>
+<li><input data-id="item-30" type="checkbox"/><strong>Podpinanie przez config</strong>: dowolna symulacja + dowolny model; źródło: <code>abc.ABC</code> vs <code>typing.Protocol</code></li>
+<li><input data-id="item-31" type="checkbox"/><strong>Diagnostyka</strong>: loss curves, gradienty, aktywacje (jak Ep 4) — tym samym interfejsem</li>
 </ul>
-<div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
+<div class="tags"><span class="tag tag-build">budujesz</span></div>
+</div>
+<div class="section type-czytaj">
+<div class="section-label">📘 Książka</div>
+<div class="section-title">Goodfellow — Deep Learning (rozdziały równolegle z kodem)</div>
+<ul class="item-list">
+<li><input data-id="item-306" type="checkbox"/><strong>Rozdz. 5</strong> ML basics: MLE, bias/wariancja, pojemność modelu</li>
+<li><input data-id="item-307" type="checkbox"/><strong>Rozdz. 6</strong> Deep Feedforward Networks: backprop jako graf obliczeń (z Ep 1 i 5)</li>
+<li><input data-id="item-308" type="checkbox"/><strong>Rozdz. 7</strong> Regularization · <strong>rozdz. 8</strong> Optimization for Training (SGD, momentum, Adam, inicjalizacja)</li>
+<li><input data-id="item-309" type="checkbox"/><strong>Rozdz. 9</strong> CNN (z #3, #4) · <strong>rozdz. 10</strong> Sequence Modeling (z #1, #2, #5)</li>
+<li><input data-id="item-310" type="checkbox"/><strong>Rozdz. 11</strong> Practical Methodology — razem z „A Recipe for Training NNs”</li>
+<li><input data-id="item-311" type="checkbox"/><a href="https://www.deeplearningbook.org/" target="_blank">deeplearningbook.org ↗</a></li>
+</ul>
+<div class="tags"><span class="tag tag-czytaj">czytaj</span></div>
 </div>
 </div>
 </div>
@@ -550,11 +575,10 @@
 <div class="phase-card p2">
 <div class="phase-header">
 <span class="phase-num">Faza 2</span>
-<span class="phase-title">Transformer głębiej + Computer Vision + NEAT</span>
-<span class="phase-duration">4–6 tygodni</span>
+<span class="phase-title">Transformer głębiej + CV + RL + magisterka (fundamenty)</span>
 </div>
 <div class="phase-desc">
-          fast.ai Part 2 implementuje Stable Diffusion od zera — to świetne ćwiczenie bo łączy CNN, U-Net, attention i VAE. Jednocześnie implementujesz własny NEAT. NEAT wymaga rozumienia sieci (masz je z Fazy 1) i algorytmów ewolucyjnych. Czytasz papiery CV z listy — ResNet, dilated convolutions, Relational Reasoning.
+          Fast.ai Part 2 (ResNet, Stable Diffusion, VAE) idzie dalej. Dochodzi RL: pendulum z frameworku to pierwsze środowisko, a REINFORCE z baseline jest rdzeniem metod z magisterki. Literatura o optymalizacji kombinatorycznej w kolejności: Pointer Networks → Attention Model → GNN.
         </div>
 <div class="sections">
 <div class="section type-kurs">
@@ -574,41 +598,55 @@
 </div>
 <div class="section type-build">
 <div class="section-label">🔨 Budujesz</div>
-<div class="section-title">NEAT — własna implementacja od zera</div>
+<div class="section-title">RL — od REINFORCE do PPO (pendulum jako środowisko)</div>
 <ul class="item-list">
-<li><input data-id="item-40" type="checkbox"/><strong>Krok 1</strong>: Przeczytaj Stanley &amp; Miikkulainen 2002 (6 stron — zrób to naprawdę)</li>
-<li><input data-id="item-41" type="checkbox"/><strong>Krok 2</strong>: Genome encoding: lista node genes + connection genes</li>
-<li><input data-id="item-42" type="checkbox"/><strong>Krok 3</strong>: Innovation numbers — historical markers dla crossover</li>
-<li><input data-id="item-43" type="checkbox"/><strong>Krok 4</strong>: Speciation: compatibility distance δ = c1·E/N + c2·D/N + c3·W</li>
-<li><input data-id="item-44" type="checkbox"/><strong>Krok 5</strong>: Crossover topologicznie różnych genomów</li>
-<li><input data-id="item-45" type="checkbox"/><strong>Krok 6</strong>: Mutacje: add node, add connection, weight perturbation</li>
-<li><input data-id="item-46" type="checkbox"/><strong>Krok 7</strong>: Fitness evaluation w środowisku (symulacja fizyczna)</li>
-<li><input data-id="item-47" type="checkbox"/><strong>Krok 8</strong>: Porównaj z neat-python jako referencyjna implementacja</li>
-<li><input data-id="item-48" type="checkbox"/><a href="https://neat-python.readthedocs.io" target="_blank">neat-python docs (referencyjna impl) ↗</a></li>
-<li><input data-id="item-49" type="checkbox"/><a href="https://towardsdatascience.com/from-genes-to-neural-networks-understanding-and-building-neat-neuro-evolution-of-augmenting-topologies-from-scratch/" target="_blank">TDS: Building NEAT from scratch ↗</a></li>
+<li><input data-id="item-320" type="checkbox"/><strong>Podstawy</strong>: MDP, return, value vs policy — Sutton &amp; Barto rozdz. 1–6 · <a href="http://incompleteideas.net/book/the-book-2nd.html" target="_blank">książka ↗</a></li>
+<li><input data-id="item-321" type="checkbox"/><strong>Policy gradient</strong>: twierdzenie o gradiencie polityki, REINFORCE — S&amp;B rozdz. 13</li>
+<li><input data-id="item-322" type="checkbox"/><strong>Baseline i wariancja</strong>: advantage, GAE — Schulman 2015 (High-Dimensional Continuous Control Using GAE)</li>
+<li><input data-id="item-323" type="checkbox"/><strong>Actor-critic → PPO</strong>: clipping — Schulman 2017 (Proximal Policy Optimization Algorithms)</li>
+<li><input data-id="item-324" type="checkbox"/><a href="https://spinningup.openai.com/" target="_blank">OpenAI Spinning Up ↗</a> — Part 1–3 + Key Papers</li>
+<li><input data-id="item-325" type="checkbox"/>Własny REINFORCE i PPO w czystym PyTorch; akcje ciągłe (rozkład Gaussa, log-prob)</li>
+<li><input data-id="item-326" type="checkbox"/>Test w frameworku: te same interfejsy, Model podmieniany (REINFORCE ↔ PPO) na pendulum</li>
 </ul>
-<div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
+<div class="tags"><span class="tag tag-build">budujesz</span></div>
 </div>
 <div class="section type-paper">
 <div class="section-label">📄 Papiery z listy</div>
-<div class="section-title">Computer Vision i głęboka architektura (#9–#12)</div>
+<div class="section-title">Computer Vision i głęboka architektura (#9–#12, #18)</div>
 <ul class="item-list">
 <li><input data-id="item-50" type="checkbox"/><strong>#9 Deep Residual Learning</strong> — He et al. 2015 (ResNet) · W5 T2 — czytaj razem z Lesson 10</li>
 <li><input data-id="item-51" type="checkbox"/><strong>#10 Identity Mappings in Deep Residual Networks</strong> — He et al. 2016 · W4 T3</li>
 <li><input data-id="item-52" type="checkbox"/><strong>#11 Multi-Scale Context Aggregation by Dilated Convolutions</strong> — Yu &amp; Koltun · W3 T3</li>
 <li><input data-id="item-53" type="checkbox"/><strong>#12 A Simple NN Module for Relational Reasoning</strong> — Santoro et al. 2017 · W3 T3</li>
+<li><input data-id="item-127" type="checkbox"/><strong>#18 Variational Lossy Autoencoder</strong> — Chen et al. 2016 · W3 T4 — po Lesson 15 (VAE)</li>
+</ul>
+<div class="tags"><span class="tag tag-paper">paper</span></div>
+</div>
+<div class="section type-paper">
+<div class="section-label">🎓 Magisterka · literatura</div>
+<div class="section-title">Optymalizacja kombinatoryczna (TSP/VRP) — kolejność czytania</div>
+<ul class="item-list">
+<li><input data-id="item-330" type="checkbox"/><strong>Bengio, Lodi, Prouvost 2018</strong> — Machine Learning for Combinatorial Optimization: a Methodological Tour d’Horizon (ramka całej pracy)</li>
+<li><input data-id="item-126" type="checkbox"/><strong>#19 Pointer Networks</strong> — Vinyals et al. 2015 · W5 T3 (baseline dla TSP/VRP)</li>
+<li><input data-id="item-81" type="checkbox"/><strong>#20 Order Matters: Sequence to Sequence for Sets</strong> — Vinyals et al. 2015 · W3 T3</li>
+<li><input data-id="item-331" type="checkbox"/><strong>Bello et al. 2016</strong> — Neural Combinatorial Optimization with Reinforcement Learning (Pointer Net + REINFORCE)</li>
+<li><input data-id="item-332" type="checkbox"/><strong>Kool et al. 2019</strong> — Attention, Learn to Solve Routing Problems! (Transformer + greedy rollout baseline)</li>
+<li><input data-id="item-333" type="checkbox"/><strong>Kwon et al. 2020</strong> — POMO: Policy Optimization with Multiple Optima</li>
+<li><input data-id="item-336" type="checkbox"/>GNN od podstaw: Distill — A Gentle Introduction to Graph Neural Networks · PyTorch Geometric</li>
+<li><input data-id="item-130" type="checkbox"/><strong>#21 Neural Message Passing for Quantum Chemistry</strong> — Gilmer et al. 2017 (MPNN) · W5 T4 (rama pod GNN)</li>
+<li><input data-id="item-334" type="checkbox"/><strong>Khalil et al. 2017</strong> — Learning Combinatorial Optimization Algorithms over Graphs (GNN + RL)</li>
+<li><input data-id="item-335" type="checkbox"/><strong>Joshi et al. 2019</strong> — An Efficient Graph Convolutional Network Technique for the TSP</li>
+<li><input data-id="item-125" type="checkbox"/>Przegląd: algorytmy genetyczne vs. uczone heurystyki na TSP</li>
 </ul>
 <div class="tags"><span class="tag tag-paper">paper</span></div>
 </div>
 <div class="section type-czytaj">
-<div class="section-label">📖 Czytaj</div>
-<div class="section-title">Neuroevolution — tło do NEAT</div>
+<div class="section-label">📘 Książka</div>
+<div class="section-title">Goodfellow — autoenkodery i generatywne</div>
 <ul class="item-list">
-<li><input data-id="item-56" type="checkbox"/>NEAT overview — neat-python.readthedocs.io (zanim piszesz kod)</li>
-<li><input data-id="item-57" type="checkbox"/>HyperNEAT: geometry-aware evolution — Stanley et al.</li>
-<li><input data-id="item-58" type="checkbox"/>Tensorized NEAT for GPU — arxiv 2404.01817</li>
-<li><input data-id="item-59" type="checkbox"/>Neuroevolution on the Edge of Chaos — arxiv 1706.01330</li>
-<li><input data-id="item-60" type="checkbox"/>NEAT + RL vs Q-Learning — arxiv 2209.09007 (porównanie do Q-learning)</li>
+<li><input data-id="item-340" type="checkbox"/><strong>Rozdz. 14</strong> Autoencoders — przed Lesson 15 (VAE)</li>
+<li><input data-id="item-341" type="checkbox"/><strong>Rozdz. 15</strong> Representation Learning — latent space, transfer</li>
+<li><input data-id="item-342" type="checkbox"/><strong>Rozdz. 20</strong> Deep Generative Models: VAE, GAN, autoregresyjne (dyfuzji tu nie ma → Lesson 12–13)</li>
 </ul>
 <div class="tags"><span class="tag tag-czytaj">czytaj</span></div>
 </div>
@@ -630,11 +668,10 @@
 <div class="phase-card p3">
 <div class="phase-header">
 <span class="phase-num">Faza 3</span>
-<span class="phase-title">LLMs głębiej + MCP server + RAG Inspector</span>
-<span class="phase-duration">7–10 tygodni</span>
+<span class="phase-title">LLMs głębiej + RAG + MCP (projekt: Knowledge MCP)</span>
 </div>
 <div class="phase-desc">
-          Teraz masz kontekst żeby rozumieć LLMy naprawdę — nie jako black box. mlabonne/llm-course przeprowadza przez całą ścieżkę od tokenizacji przez fine-tuning (LoRA działa na Twoim GTX 1080 z 8 GB VRAM!) po RAG i agenty. HuggingFace NLP Course daje praktyczne hands-on. Zanim zrobisz RAG Inspector, budujesz serwer MCP — uczy projektowania narzędzi dla LLM i później posłuży jako warstwa dostępu do RAG. RAG Inspector finalnie staje się kompletnym projektem portfolio.
+          mlabonne/llm-course prowadzi od tokenizacji przez fine-tuning (QLoRA mieści się w 16 GB VRAM) po RAG i agentów. Najpierw dokumentacja i kursy MCP, potem jeden projekt: RAG nad własnym kodem i notatkami wystawiony jako serwer MCP. DDIA 2. wyd. (rozdz. 1–5) daje fundament pod indeksy, formaty danych i schematy narzędzi.
         </div>
 <div class="sections">
 <div class="section type-kurs">
@@ -646,7 +683,7 @@
 <li><input data-id="item-63" type="checkbox"/><strong>Tokenizacja</strong>: BPE od zera (uzupełnia Karpathy Ep 8)</li>
 <li><input data-id="item-64" type="checkbox"/><strong>Pre-training</strong>: scaling laws, data pipeline, causal LM</li>
 <li><input data-id="item-65" type="checkbox"/><strong>RLHF</strong>: SFT → reward model → PPO; DPO jako alternatywa</li>
-<li><input data-id="item-66" type="checkbox"/><strong>Fine-tuning</strong>: LoRA, QLoRA (4-bit — działa na 1080!), Unsloth</li>
+<li><input data-id="item-66" type="checkbox"/><strong>Fine-tuning</strong>: LoRA, QLoRA (4-bit — mieści się w 16 GB VRAM), Unsloth</li>
 <li><input data-id="item-67" type="checkbox"/><strong>RAG</strong>: chunking strategie, dense retrieval, reranking, vector DB</li>
 <li><input data-id="item-68" type="checkbox"/><strong>Agenty</strong>: ReAct, MCP protocol, LangGraph, smolagents</li>
 <li><input data-id="item-69" type="checkbox"/><strong>Quantization</strong>: GPTQ, AWQ, GGUF — deployment na consumer GPU</li>
@@ -699,38 +736,39 @@
 </ul>
 <div class="tags"><span class="tag tag-kurs">kurs</span><span class="tag tag-czytaj">czytaj</span></div>
 </div>
-<div class="section type-build">
-<div class="section-label">🔨 Budujesz</div>
-<div class="section-title">MCP Server — projekt przed RAG Inspector</div>
+<div class="section type-czytaj">
+<div class="section-label">📘 Książka</div>
+<div class="section-title">DDIA, 2. wydanie (Kleppmann, Riccomini) — Część I</div>
 <ul class="item-list">
-<li>Pomysł: serwer MCP nad Twoimi eksperymentami (symulacja wahadła / NEAT) — LLM uruchamia runy i czyta metryki. Temat do podmiany.</li>
-<li><input data-id="item-213" type="checkbox"/><strong>Zakres</strong>: 3–5 narzędzi (np. list_experiments, run_experiment, get_run_status, get_metrics) + resources z configami/wynikami + 1–2 prompty; oznacz narzędzia read-only vs zmieniające stan</li>
-<li><input data-id="item-214" type="checkbox"/><strong>Opisy i schematy</strong>: nazwy, opisy i JSON Schema narzędzi pisane dla modelu — to one decydują o jakości wywołań</li>
-<li><input data-id="item-215" type="checkbox"/><strong>SDK</strong>: Python SDK v2 (MCPServer), przypięta wersja; najpierw stdio lokalnie</li>
-<li><input data-id="item-216" type="checkbox"/><strong>Transport</strong>: Streamable HTTP w trybie bezstanowym (zgodnie z 2026-07-28)</li>
-<li><input data-id="item-217" type="checkbox"/><strong>Stan i długie zadania</strong>: brak sesji → jawny uchwyt (run_id) w argumentach; run_experiment zwraca run_id, status przez polling (opcjonalnie rozszerzenie Tasks)</li>
-<li><input data-id="item-218" type="checkbox"/><strong>Testy</strong>: <a href="https://github.com/modelcontextprotocol/inspector" target="_blank">MCP Inspector ↗</a> (tools/list, tools/call) + pytest + podpięcie pod prawdziwego klienta (Claude Desktop / Claude Code)</li>
-<li><input data-id="item-219" type="checkbox"/><strong>Bezpieczeństwo</strong>: walidacja wejść, allowlista ścieżek/URL, least privilege, wyniki narzędzi jako dane; test „wrogiego” rekordu z instrukcjami</li>
-<li><input data-id="item-220" type="checkbox"/><strong>Logi</strong>: audit log wywołań (narzędzie, argumenty, czas, correlation id)</li>
-<li><input data-id="item-221" type="checkbox"/><strong>Auth</strong> (opcjonalnie): OAuth 2.1 + PKCE dla zdalnego endpointu</li>
-<li><input data-id="item-222" type="checkbox"/><strong>Deploy</strong>: Dockerfile + zdalny endpoint (Render / HF Spaces)</li>
-<li><input data-id="item-223" type="checkbox"/><strong>README</strong> po angielsku: architektura, lista narzędzi, model zagrożeń, demo</li>
+<li><input data-id="item-350" type="checkbox"/><strong>Rozdz. 1–2</strong> Trade-offs w architekturze, wymagania niefunkcjonalne (latency, percentyle, niezawodność) — przed fazą 4</li>
+<li><input data-id="item-351" type="checkbox"/><strong>Rozdz. 3</strong> Data Models and Query Languages — relacyjny vs dokumentowy vs graf (wiąże się z SQL)</li>
+<li><input data-id="item-352" type="checkbox"/><strong>Rozdz. 4</strong> Storage and Retrieval — LSM-tree vs B-tree, indeksy (w tym wektorowe, HNSW) — razem z vector store w Knowledge MCP</li>
+<li><input data-id="item-353" type="checkbox"/><strong>Rozdz. 5</strong> Encoding and Evolution — JSON Schema, Protobuf, Avro, kompatybilność schematów — razem ze schematami narzędzi MCP</li>
 </ul>
-<div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
+<div class="tags"><span class="tag tag-czytaj">czytaj</span></div>
 </div>
 <div class="section type-build">
 <div class="section-label">🔨 Budujesz</div>
-<div class="section-title">RAG Inspector — finalizacja jako projekt portfolio</div>
+<div class="section-title">Knowledge MCP — RAG + MCP nad własnym kodem i notatkami</div>
 <ul class="item-list">
-<li><input data-id="item-85" type="checkbox"/><strong>Embedding pipeline</strong>: chunking strategy (fixed / semantic / sentence)</li>
-<li><input data-id="item-86" type="checkbox"/><strong>Vector store</strong>: FAISS lub ChromaDB — rozumiesz HNSW index</li>
-<li><input data-id="item-87" type="checkbox"/><strong>Retrieval</strong>: dense (cosine similarity) + BM25 hybrid</li>
-<li><input data-id="item-88" type="checkbox"/><strong>Reranking</strong>: cross-encoder model jako drugi etap</li>
-<li><input data-id="item-89" type="checkbox"/><strong>Generation</strong>: prompt template, context injection, hallucination guard</li>
-<li><input data-id="item-90" type="checkbox"/><strong>Ewaluacja</strong>: RAGAS metrics (context precision/recall, faithfulness)</li>
-<li><input data-id="item-91" type="checkbox"/><strong>Deploy</strong>: FastAPI endpoint + HuggingFace Spaces lub Render</li>
-<li><input data-id="item-224" type="checkbox"/><strong>MCP</strong> (opcjonalnie): wystaw retrieval RAG Inspectora jako narzędzie serwera MCP z poprzedniego projektu</li>
-<li><input data-id="item-92" type="checkbox"/><strong>README</strong>: architektura, wyniki ewaluacji, opis decyzji projektowych</li>
+<li><input data-id="item-360" type="checkbox"/><strong>Źródła</strong>: repozytoria z kodem (Python/C++/Go) + vault Obsidian; lokalnie, read-only</li>
+<li><input data-id="item-85" type="checkbox"/><strong>Chunking</strong>: kod po funkcjach/klasach (tree-sitter), notatki po nagłówkach; metadane: ścieżka, wikilinki, tagi</li>
+<li><input data-id="item-361" type="checkbox"/><strong>Indeksowanie przyrostowe</strong>: hash plików + watchdog, reindeksacja tylko zmian</li>
+<li><input data-id="item-86" type="checkbox"/><strong>Vector store</strong>: FAISS lub ChromaDB (HNSW); embeddingi lokalnie — sentence-transformers na GPU</li>
+<li><input data-id="item-87" type="checkbox"/><strong>Retrieval</strong>: dense + BM25 hybrid (SQLite FTS5), fuzja RRF</li>
+<li><input data-id="item-88" type="checkbox"/><strong>Reranking</strong>: cross-encoder jako drugi etap</li>
+<li><input data-id="item-89" type="checkbox"/><strong>Odpowiedzi z cytowaniem</strong>: plik:linia; brak źródła = brak odpowiedzi (hallucination guard)</li>
+<li><input data-id="item-90" type="checkbox"/><strong>Ewaluacja</strong>: własny zestaw ~30 pytań z własnych notatek, recall@k, MRR; RAGAS (faithfulness, context precision/recall)</li>
+<li><input data-id="item-213" type="checkbox"/><strong>Narzędzia MCP</strong>: search_notes, search_code, get_file, list_sources (read-only) + reindex (zmienia stan); resources: notatki; 1–2 prompty</li>
+<li><input data-id="item-214" type="checkbox"/><strong>Opisy i schematy</strong>: nazwy, opisy i JSON Schema narzędzi pisane dla modelu — one decydują o jakości wywołań</li>
+<li><input data-id="item-215" type="checkbox"/><strong>SDK</strong>: Python SDK v2 (MCPServer), przypięta wersja; najpierw stdio lokalnie</li>
+<li><input data-id="item-216" type="checkbox"/><strong>Transport</strong>: Streamable HTTP w trybie bezstanowym (2026-07-28), gdy będzie potrzebny</li>
+<li><input data-id="item-217" type="checkbox"/><strong>Długie zadania</strong>: reindex zwraca run_id, status przez polling (opcjonalnie rozszerzenie Tasks)</li>
+<li><input data-id="item-218" type="checkbox"/><strong>Testy</strong>: <a href="https://github.com/modelcontextprotocol/inspector" target="_blank">MCP Inspector ↗</a> + pytest + prawdziwy klient (Claude Desktop / Claude Code)</li>
+<li><input data-id="item-219" type="checkbox"/><strong>Bezpieczeństwo</strong>: allowlista ścieżek, least privilege, treść notatek jako dane (test notatki z wrogimi instrukcjami)</li>
+<li><input data-id="item-220" type="checkbox"/><strong>Logi</strong>: audit log wywołań (narzędzie, argumenty, czas, correlation id)</li>
+<li><input data-id="item-222" type="checkbox"/><strong>Opcjonalnie</strong>: zdalny endpoint — Dockerfile + OAuth 2.1 + PKCE</li>
+<li><input data-id="item-92" type="checkbox"/><strong>README</strong> po angielsku: architektura, narzędzia, model zagrożeń, wyniki ewaluacji, demo</li>
 </ul>
 <div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
 </div>
@@ -743,7 +781,7 @@
 <svg fill="none" height="20" viewbox="0 0 16 20" width="16">
 <path d="M8 2 L8 14 M4 10 L8 15 L12 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
 </svg>
-        masz działający RAG w portfolio — teraz uczysz go żyć w produkcji
+        masz Knowledge MCP w portfolio — teraz produkcja i drugi projekt
       </div>
 </div>
 <!-- ═══════════════════════════ FAZA 4 ═══════════════════════════ -->
@@ -752,11 +790,10 @@
 <div class="phase-card p4">
 <div class="phase-header">
 <span class="phase-num">Faza 4</span>
-<span class="phase-title">MLOps + SQL + Cloud + GAN projekt</span>
-<span class="phase-duration">4–5 tygodni</span>
+<span class="phase-title">MLOps + SQL + Cloud + Math Whiteboard</span>
 </div>
 <div class="phase-desc">
-          To jest faza która odróżnia kogoś kto trenuje modele od kogoś kto może pracować produkcyjnie. MLflow, FastAPI, Docker, podstawy cloud — pojawiają się w każdej polskiej ofercie pracy. SQL: okna (window functions), GROUP BY, subqueries — osobny slot ćwiczeń. GAN projekt: masz już tyle wiedzy (VAE z Fazy 2, architektura z Fazy 1) żeby zrobić to solidnie.
+          Faza, która odróżnia kogoś, kto trenuje modele, od kogoś, kto pracuje produkcyjnie: MLflow, FastAPI, Docker, CI/CD, podstawy cloud i orkiestracja są w większości ofert. Math Whiteboard łączy wizję (fast.ai), modele sekwencyjne i serwowanie. DDIA Część II–III daje język do system designu.
         </div>
 <div class="sections">
 <div class="section type-kurs">
@@ -769,6 +806,13 @@
 <li><input data-id="item-96" type="checkbox"/><strong>GitHub Actions</strong>: CI/CD pipeline — test + build + deploy on push</li>
 <li><input data-id="item-97" type="checkbox"/><strong>Model monitoring</strong>: Evidently AI — data drift, model drift detection</li>
 <li><input data-id="item-98" type="checkbox"/><strong>Cloud</strong>: AWS SageMaker lub GCP Vertex AI (free tier — jeden deployment)</li>
+<li><input data-id="item-119" type="checkbox"/><strong>HPO</strong>: Optuna (TPE sampler) — przyda się też w magisterce</li>
+<li><input data-id="item-370" type="checkbox"/><strong>DVC</strong>: wersjonowanie danych i modeli (obok Git, git-lfs)</li>
+<li><input data-id="item-371" type="checkbox"/><strong>ONNX / ONNX Runtime</strong>: eksport z PyTorch, inferencja bez PyTorcha, kwantyzacja INT8</li>
+<li><input data-id="item-372" type="checkbox"/><strong>Orkiestracja</strong>: Airflow lub Prefect — DAG-i treningu i batch inference</li>
+<li><input data-id="item-373" type="checkbox"/><strong>Kubernetes</strong> (podstawy): Pod, Deployment, Service — wystarczy czytać manifesty</li>
+<li><input data-id="item-374" type="checkbox"/><strong>Spark / Databricks</strong>: PySpark DataFrame API — częsty wymóg w ofertach, poziom orientacji</li>
+<li><input data-id="item-375" type="checkbox"/><strong>Jakość kodu</strong>: pytest, Pydantic, pre-commit + ruff</li>
 <li><input data-id="item-99" type="checkbox"/><a href="https://fullstackdeeplearning.com/" target="_blank">Full Stack Deep Learning (FSDL) — darmowe ↗</a></li>
 </ul>
 <div class="tags"><span class="tag tag-kurs">kurs</span><span class="tag tag-build">budujesz</span></div>
@@ -787,18 +831,33 @@
 </ul>
 <div class="tags"><span class="tag tag-czytaj">czytaj</span><span class="tag tag-kurs">kurs</span></div>
 </div>
+<div class="section type-czytaj">
+<div class="section-label">📘 Książka</div>
+<div class="section-title">DDIA, 2. wydanie — Część II i III</div>
+<ul class="item-list">
+<li><input data-id="item-400" type="checkbox"/><strong>Rozdz. 6–7</strong> Replikacja i sharding</li>
+<li><input data-id="item-401" type="checkbox"/><strong>Rozdz. 8</strong> Transactions — ACID, poziomy izolacji (razem z SQL)</li>
+<li><input data-id="item-402" type="checkbox"/><strong>Rozdz. 9–10</strong> Awarie, spójność, konsensus — materiał pod system design ML</li>
+<li><input data-id="item-403" type="checkbox"/><strong>Rozdz. 11–12</strong> Batch i stream processing — pipeline’y danych, feature store, Spark/Flink</li>
+</ul>
+<div class="tags"><span class="tag tag-czytaj">czytaj</span></div>
+</div>
 <div class="section type-build">
 <div class="section-label">🔨 Budujesz</div>
-<div class="section-title">GAN projekt: Fashion MNIST → latent control</div>
+<div class="section-title">Math Whiteboard — własne Miro z rozpoznawaniem pisma</div>
 <ul class="item-list">
-<li><input data-id="item-107" type="checkbox"/><strong>Vanilla GAN</strong>: generator + discriminator, loss landscape, mode collapse</li>
-<li><input data-id="item-108" type="checkbox"/><strong>DCGAN</strong>: conv architektura, BatchNorm, upsampling strategia</li>
-<li><input data-id="item-109" type="checkbox"/><strong>Conditional GAN</strong>: class conditioning przez concatenation</li>
-<li><input data-id="item-127" type="checkbox"/><strong>#18 Variational Lossy Autoencoder</strong> — Chen et al. 2016 · W3 T4 — czytaj po VAE z Fazy 2, przed InfoGAN</li>
-<li><input data-id="item-110" type="checkbox"/><strong>InfoGAN</strong>: latent space control, mutual information maximization</li>
-<li><input data-id="item-111" type="checkbox"/><strong>Ewaluacja</strong>: FID score (Frechet Inception Distance) — standardowa metryka</li>
-<li><input data-id="item-112" type="checkbox"/>Wandb albo MLflow logging — wszystkie runy widoczne w dashboard</li>
-<li><input data-id="item-113" type="checkbox"/>GitHub: wykresy FID, przykłady generacji, latent space interpolation</li>
+<li><input data-id="item-380" type="checkbox"/><strong>Zakres</strong>: nieskończone płótno, pióro, obiekty (kształty, strzałki, tekst), undo/redo; rozpoznane pismo → podmiana na symbol lub literę (Unicode/LaTeX)</li>
+<li><input data-id="item-381" type="checkbox"/><strong>Dane</strong>: <a href="https://arxiv.org/abs/1701.08380" target="_blank">HASYv2 ↗</a> (Thoma 2017, ~370 klas symboli), CROHME (online, tory pióra), MathWriting (Google 2024, online)</li>
+<li><input data-id="item-382" type="checkbox"/><strong>Etap 1 — klasyfikator symboli</strong>: CNN (ResNet z Part 2); baseline MNIST/EMNIST → HASYv2; augmentacja; macierz pomyłek (1/l/I, ∑/Σ)</li>
+<li><input data-id="item-383" type="checkbox"/><strong>Etap 2 — segmentacja pociągnięć</strong>: które kreski tworzą jeden symbol („=”, „i”); grupowanie po czasie i odległości</li>
+<li><input data-id="item-384" type="checkbox"/><strong>Etap 3 — model na torach pióra</strong> (x, y, t, pen-up): Graves 2013 (Generating Sequences with RNNs), Ha &amp; Eck 2017 (Sketch-RNN); CTC z #17 Deep Speech 2</li>
+<li><input data-id="item-385" type="checkbox"/><strong>Etap 4 — próg pewności</strong>: podmieniaj tylko przy wysokim confidence; kalibracja — Guo 2017 (On Calibration of Modern Neural Networks)</li>
+<li><input data-id="item-386" type="checkbox"/><strong>Etap 5 (opcjonalnie) — struktura wyrażeń</strong>: ułamki, indeksy, pierwiastki — Deng 2016 (im2latex)</li>
+<li><input data-id="item-387" type="checkbox"/><strong>Serwowanie</strong>: ONNX + onnxruntime-web w przeglądarce lub FastAPI + WebSocket</li>
+<li><input data-id="item-388" type="checkbox"/><strong>Współpraca na żywo</strong> (opcjonalnie): CRDT — Yjs; DDIA Część II o local-first</li>
+<li><input data-id="item-389" type="checkbox"/><strong>Referencja</strong>: kod open-source tldraw / Excalidraw — model obiektów i historii</li>
+<li><input data-id="item-390" type="checkbox"/><strong>Ewaluacja</strong>: accuracy top-1/top-3 + własne próbki pisane Twoją ręką; runy w MLflow</li>
+<li><input data-id="item-391" type="checkbox"/><strong>README</strong> po angielsku: demo GIF, wyniki, ograniczenia</li>
 </ul>
 <div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
 </div>
@@ -823,7 +882,7 @@
 <svg fill="none" height="20" viewbox="0 0 16 20" width="16">
 <path d="M8 2 L8 14 M4 10 L8 15 L12 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
 </svg>
-        masz stack produkcyjny i 3 projekty w portfolio — czas na interview i magisterka
+        masz stack produkcyjny i 2 projekty w portfolio — czas na eksperymenty magisterskie i interview
       </div>
 </div>
 <!-- ═══════════════════════════ FAZA 5 ═══════════════════════════ -->
@@ -832,37 +891,27 @@
 <div class="phase-card p5">
 <div class="phase-header">
 <span class="phase-num">Faza 5</span>
-<span class="phase-title">AutoML + Magisterka + Interview prep</span>
+<span class="phase-title">Magisterka (eksperymenty i pisanie) + Interview prep</span>
 <span class="phase-duration">równolegle z poprzednimi</span>
 </div>
 <div class="phase-desc">
-          AutoML jest naturalnym rozszerzeniem NEAT (to NAS — Neural Architecture Search). Temat magisterki T1 (GNN+RL dla TSP/VRP) wchodzi tu jako projekt badawczy. Interview prep robiasz systematycznie od tej fazy: datainterview.com, SQL ćwiczenia, system design ML. Portfolio check — każdy projekt musi mieć czytelne README po angielsku i dokumentację wyników.
+          Literaturę do magisterki masz z fazy 2 — tu są eksperymenty, statystyka wyników i pisanie; można zacząć równolegle z fazami 3–4. Interview prep od tej fazy: SQL, system design ML (DDIA), kodowanie. Każdy projekt z czytelnym README po angielsku.
         </div>
 <div class="sections">
 <div class="section type-build">
 <div class="section-label">🔨 Budujesz</div>
-<div class="section-title">AutoML — własna implementacja + magisterka</div>
+<div class="section-title">Magisterka — eksperymenty i pisanie</div>
 <ul class="item-list">
-<li><input data-id="item-119" type="checkbox"/><strong>HPO</strong>: Optuna — hyperparameter optimization z TPE sampler</li>
-<li><input data-id="item-120" type="checkbox"/><strong>NAS koncepcja</strong>: DARTS, random search vs. evolutionary search</li>
-<li><input data-id="item-121" type="checkbox"/><strong>NEAT jako NAS</strong>: co łączy, co różni od gradient-based NAS</li>
-<li><input data-id="item-122" type="checkbox"/><strong>Pipeline AutoML</strong>: preprocessing → model selection → hyperparams → eval</li>
-<li><input data-id="item-123" type="checkbox"/>Porównanie wyników z TPOT lub Auto-sklearn na benchmark datasecie</li>
-<li><input data-id="item-124" type="checkbox"/><strong>Magisterka T1</strong>: GNN+RL dla kombinatoryki (TSP/VRP) — Pointer Networks baseline</li>
-<li><input data-id="item-125" type="checkbox"/>Przegląd literatury: genetic algos vs. learned heuristics na TSP</li>
+<li><input data-id="item-124" type="checkbox"/><strong>Zakres</strong>: TSP → CVRP; rozmiary instancji i podział trening/test</li>
+<li><input data-id="item-410" type="checkbox"/><strong>Benchmarki</strong>: TSPLIB, CVRPLIB (Uchoa et al. 2017, zbiór X) — instancje z literatury, wyniki porównywalne</li>
+<li><input data-id="item-411" type="checkbox"/><strong>Baseliny klasyczne</strong>: 2-opt, LKH-3, OR-Tools, Concorde (optimum TSP); algorytm genetyczny (DEAP lub pygad)</li>
+<li><input data-id="item-412" type="checkbox"/><strong>Modele uczone</strong>: Pointer Net → Attention Model (Kool) → POMO, trening REINFORCE z baseline; GNN (PyTorch Geometric) jako wariant</li>
+<li><input data-id="item-413" type="checkbox"/><strong>Metryki</strong>: optimality gap, czas inferencji, generalizacja na większe n; ten sam budżet obliczeń dla wszystkich metod</li>
+<li><input data-id="item-414" type="checkbox"/><strong>Rzetelność wyników</strong>: wiele seedów, przedziały ufności, test Wilcoxona; Optuna dla HPO</li>
+<li><input data-id="item-415" type="checkbox"/><strong>Powtarzalność</strong>: ModelConfig/TrainConfig, results.csv, MLflow, przypięte wersje</li>
+<li><input data-id="item-416" type="checkbox"/><strong>Pisanie</strong>: LaTeX + Zotero/BibTeX, wykresy z results.csv, notatki Feynmana z papierów jako szkic rozdziału literaturowego</li>
 </ul>
 <div class="tags"><span class="tag tag-build">budujesz</span><span class="tag tag-portfolio">portfolio</span></div>
-</div>
-<div class="section type-paper">
-<div class="section-label">📄 Papiery z listy</div>
-<div class="section-title">Papiery z listy — pod magisterkę GNN + RL (#19–#21)</div>
-<ul class="item-list">
-<li><input data-id="item-126" type="checkbox"/><strong>#19 Pointer Networks</strong> — Vinyals et al. 2015 · W5 T3 (baseline dla TSP/VRP)</li>
-<li><input data-id="item-81" type="checkbox"/><strong>#20 Order Matters: Sequence to Sequence for Sets</strong> — Vinyals et al. 2015 · W3 T3</li>
-<li><input data-id="item-130" type="checkbox"/><strong>#21 Neural Message Passing for Quantum Chemistry</strong> — Gilmer et al. 2017 (MPNN) · W5 T4 (rama pod GNN)</li>
-<li>Jeśli literatura do magisterki tego wymaga, #19–#21 możesz wciągnąć wcześniej.</li>
-</ul>
-<div class="tags"><span class="tag tag-paper">paper</span></div>
 </div>
 <div class="section type-czytaj">
 <div class="section-label">🎯 Interview prep</div>
@@ -884,12 +933,10 @@
 <div class="section-label">✅ Portfolio check</div>
 <div class="section-title">GitHub — każdy projekt musi być czytelny</div>
 <ul class="item-list">
-<li><input data-id="item-141" type="checkbox"/><strong>RAG Inspector</strong>: README po angielsku, architektura, RAGAS wyniki, demo link</li>
-<li><input data-id="item-142" type="checkbox"/><strong>NEAT implementation</strong>: opis algorytmu, benchmark na środowiskach, wizualizacje</li>
-<li><input data-id="item-143" type="checkbox"/><strong>Symulacje fizyczne</strong>: opis problemu, jak działa sieć, wyniki treningu</li>
-<li><input data-id="item-144" type="checkbox"/><strong>GAN projekt</strong>: FID scores, przykłady generacji, latent interpolation</li>
-<li><input data-id="item-225" type="checkbox"/><strong>MCP server</strong>: README po angielsku, lista narzędzi, model zagrożeń, demo</li>
-<li><input data-id="item-145" type="checkbox"/>LinkedIn (angielski): linki do projektów, opis stack'u, open to work</li>
+<li><input data-id="item-141" type="checkbox"/><strong>Knowledge MCP</strong>: README po angielsku, architektura, narzędzia, model zagrożeń, wyniki ewaluacji, demo</li>
+<li><input data-id="item-420" type="checkbox"/><strong>Math Whiteboard</strong>: demo GIF, wyniki klasyfikatora, ograniczenia, link do dema</li>
+<li><input data-id="item-421" type="checkbox"/><strong>Magisterka</strong>: repo z kodem i powtarzalnymi eksperymentami (o ile promotor pozwala)</li>
+<li><input data-id="item-145" type="checkbox"/>LinkedIn (angielski): linki do projektów, opis stack’u, open to work</li>
 <li><input data-id="item-146" type="checkbox"/>Kaggle: min. 2 submissje z write-upem (pozycja nie ma znaczenia)</li>
 </ul>
 <div class="tags"><span class="tag tag-portfolio">portfolio</span></div>
@@ -915,7 +962,7 @@
 <span class="phase-title">Tło teoretyczne i śledzenie pola</span>
 <span class="phase-duration">po trochu, bez presji</span>
 </div>
-<div class="always-note">Papiery #22–#27 mają sugerowaną kolejność (od najłatwiejszych), ale bez presji — czytasz, gdy temat koresponduje z tym, co robisz. MDL i Kolmogorov przy magisterce. Machine Super Intelligence wieczorem przy kawie. Arxiv sanity — tydzień w tydzień, 10 minut.</div>
+<div class="always-note">Papiery #22–#27 mają sugerowaną kolejność (od najłatwiejszych), ale bez presji — czytasz, gdy temat koresponduje z tym, co robisz. MDL i Kolmogorov przy magisterce. Machine Super Intelligence wieczorem przy kawie. Arxiv sanity — co jakiś czas. Goodfellow rozdz. 3 (teoria informacji) przed #25.</div>
 <div class="sections">
 <div class="section type-paper">
 <div class="section-label">📄 Filozofia i teoria AI</div>
@@ -932,7 +979,7 @@
 </div>
 <div class="section type-czytaj">
 <div class="section-label">📡 Śledzenie na bieżąco</div>
-<div class="section-title">Źródła — tydzień w tydzień</div>
+<div class="section-title">Źródła — na bieżąco</div>
 <ul class="item-list">
 <li><input data-id="item-153" type="checkbox"/><a href="https://paperswithcode.com/" target="_blank">Papers With Code — SOTA tracker ↗</a></li>
 <li><input data-id="item-154" type="checkbox"/><a href="https://lilianweng.github.io/" target="_blank">Lilian Weng blog — najlepsza seria w sieci ↗</a></li>
@@ -949,6 +996,6 @@
 </div><!-- /timeline -->
 </div><!-- /content -->
 <script>
-document.querySelectorAll('.item-list input[type=checkbox]').forEach(cb=>{const k=cb.dataset.id;cb.checked=localStorage.getItem(k)==='true';cb.addEventListener('change',()=>localStorage.setItem(k,cb.checked));});
+document.querySelectorAll('.item-list input[type=checkbox]').forEach(cb=>{const k=cb.dataset.id;const v=localStorage.getItem(k);cb.checked=v===null?cb.defaultChecked:v==='true';cb.addEventListener('change',()=>localStorage.setItem(k,cb.checked));});
 </script></body>
 </html>
