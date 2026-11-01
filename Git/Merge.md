@@ -37,3 +37,18 @@ Merge made by the 'ort' strategy.
 * 1a35221 A: add contents.md
 ```
 
+### Merge to [[Remote]] branch
+```bash
+# === On the other repo ===
+❯ git merge origin/main
+
+❯ ll
+total 12K
+-rw-r--r-- 1 ojke ojke 229 Nov  1 18:32 classics.csv
+-rw-r--r-- 1 ojke ojke 196 Nov  1 18:32 contents.md
+drwxr-xr-x 1 ojke ojke  36 Nov  1 18:32 quotes
+-rw-r--r-- 1 ojke ojke 138 Nov  1 18:32 titles.md
+```
+
+Merging from the remote into currently working repo (after [[Fetch]]ing).
+
