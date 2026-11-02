@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git/README.md",
+                "file": "Git/Gitignore file.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Gitignore file"
             }
           }
         ]
@@ -188,12 +188,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "91f17799a542a3c2",
+  "active": "f5385de807e75ca8",
   "lastOpenFiles": [
+    "Git/README.md",
+    "Git/Gitignore file.md",
     "Git/Push.md",
     "Git/Pull.md",
     "Git/GitHub.md",
-    "Git/README.md",
     "Git/Merge.md",
     "Git/Fetch.md",
     "Git/Remote.md",
