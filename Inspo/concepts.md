@@ -1,0 +1,87 @@
+# Cpp
+- [ ] Virtual memory vs Physical Memory
+- [ ] Page table
+- [ ] Memory Management Unit (MMU)
+- [ ] Translation Lookaside Buffer (TLB)
+- [ ] L1/L2/L3 CPU caches
+- [ ] Cache coherence (e.g. MESI protocol)
+- [ ] False sharing
+- [ ] mmap(2)/munmap(2)
+- [ ] Lambdas
+- [ ] HOFs
+- [ ] std::variant
+- [ ] std::visit
+- [ ] std::optional
+- [ ] std::string_view
+- [ ] std::ranges
+- [ ] std::shared_ptr
+- [ ] std::unique_ptr
+- [ ] constexpr
+- [ ] constinit
+- [ ] consteval
+- [ ] auto
+- [ ] decltype
+- [ ] decltype(auto)
+- [ ] Template Metaprogramming
+- [ ] Concepts
+- [ ] Forwarding references
+- [ ] Perfect forwarding
+- [ ] Ref qualifiers
+- [ ] Designated Initializers
+- [ ] Non-Virtual Interface (NVI)
+- [ ] enum class
+- [ ] using enum
+- [ ] Structured binding declaration
+- [ ] For-loop with init-statement
+
+# Data Structures & Algorithms (to implement)
+- [ ] Linked List
+- [ ] Dynamic Array
+- [ ] Stack
+- [ ] Ring-buffer Queue
+- [ ] Deque
+- [ ] Binary Heap
+- [ ] Binomial Heap
+- [ ] HashMap with Open Addressing
+- [ ] HashMap with Separate Chaining
+- [ ] Binary Search Tree
+- [ ] AVL Tree
+- [ ] Red-Black Tree
+- [ ] B-Tree
+- [ ] Splay Tree
+- [ ] Treap
+- [ ] Segment Tree/Range Tree
+- [ ] Sparse Table
+- [ ] Heavy-Light Decomposition
+- [ ] Link-Cut Tree
+- [ ] Disjoint-Set Union (DSU)
+- [ ] Suffix Array
+- [ ] Suffix Tree
+- [ ] Binary search
+- [ ] KMP (string search, not call to action)
+- [ ] Quick Sort
+- [ ] Merge Sort
+- [ ] Fast Fourier Transform (FFT)
+- [ ] Depth-First Search (DFS)
+- [ ] Breadth-First Search (BFS)
+- [ ] Topological Sort
+- [ ] Lowest Common Ancestor (LCA)
+- [ ] A* Search
+- [ ] Dijkstra Shortest Path
+- [ ] Minimum Spanning Tree (Prim or Kruskal)
+- [ ] Binary Power
+- [ ] Knapsack Problem
+- [ ] Longest Common Subsequence (LCS)
+- [ ] Greatest Common Divisor (GCD)
+
+# Machine Learning Models
+- [ ] Linear Regression
+- [ ] XGBoost
+- [ ] CatBoost
+- [ ] Naive Bayes
+- [ ] Random Forest
+- [ ] Support Vector Machines
+- [ ] PCA
+- [ ] Isolation Forest
+- [ ] Logistic Regression
+
