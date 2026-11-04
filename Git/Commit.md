@@ -41,3 +41,10 @@ B: add titles
 100644 blob bc3f6dbec0bf0887cd9bc04c9974907388de8863    contents.md # THIS FILE DIDN'T CHANGE SO BLOB HASH IS THE SAME AS IN PARENT COMMIT
 100644 blob e2c253ef323e5a8dd97c87dabee6d4a842a61c45    titles.md
 ```
+
+To change commits name
+```bash
+git commit --ammend
+```
+It changes commit `SHA`.
+
