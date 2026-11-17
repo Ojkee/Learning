@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CTFL 4.0.1 — Quizzer</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#182433;--muted:#64748b;--line:#dbe2ea;--accent:#176b87;--accent2:#e8f3f7;--good:#e7f5eb;--bad:#fff0ed;--warn:#fff6dc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:#17324d;color:white;padding:22px max(20px,calc((100% - 1000px)/2))}
+header h1{margin:0;font-size:1.45rem}header p{margin:4px 0 0;color:#d8e5ef}
+main{max-width:1000px;margin:24px auto;padding:0 16px 60px}.panel,.question,.result{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:0 0 16px;box-shadow:0 2px 8px #152b3b0a}
+h2{font-size:1.15rem;margin:0 0 12px}h3{font-size:1.05rem;margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+label{display:block;font-weight:600;font-size:.92rem;margin-bottom:5px}
+input,select,textarea{font:inherit;width:100%;padding:10px;border:1px solid #bcc8d4;border-radius:8px;background:white;color:var(--ink)}
+button{font:inherit;border:0;border-radius:9px;padding:10px 15px;background:var(--accent);color:white;font-weight:650;cursor:pointer}
+button.secondary{background:#e8edf2;color:#23384a}button.danger{background:#9b3427}button:disabled{opacity:.45;cursor:not-allowed}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.muted,.meta{color:var(--muted);font-size:.9rem}
+.pill{display:inline-block;background:var(--accent2);color:#16516a;border-radius:20px;padding:3px 9px;font-size:.78rem;font-weight:650;margin:2px 5px 2px 0}
+.progress{height:8px;background:#e5ebf0;border-radius:10px;overflow:hidden;margin:12px 0}.progress>div{height:100%;background:var(--accent);width:0}
+.option{display:flex;gap:10px;align-items:flex-start;padding:11px;border:1px solid var(--line);border-radius:9px;margin:8px 0;cursor:pointer}
+.option input{width:auto;margin-top:5px}.option:has(input:checked){border-color:var(--accent);background:var(--accent2)}
+.feedback{padding:13px;border-radius:10px;margin-top:12px}.correct{background:var(--good)}.incorrect{background:var(--bad)}
+.hidden{display:none!important}.score{font-size:2rem;font-weight:800;color:var(--accent)}
+table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:9px;border-bottom:1px solid var(--line);vertical-align:top}
+code,pre{background:#eef1f4;border-radius:5px;padding:2px 5px}pre{padding:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+small{color:var(--muted)}.right{float:right}
+@media(max-width:600px){header{padding:18px}main{margin-top:14px}.panel,.question,.result{padding:15px}}
+</style>
+</head>
+<body>
+<header><h1>ISTQB CTFL 4.0.1 — Quizzer</h1><p>Losowane pytania, punktacja, analiza odpowiedzi i eksport błędów do omówienia.</p></header>
+<main>
+<section id="setup" class="panel">
+<h2>Konfiguracja sesji</h2>
+<div class="grid">
+<div><label for="count">Liczba pytań</label><select id="count"><option>10</option><option>20</option><option selected>40</option><option value="all">Wszystkie dostępne</option></select></div>
+<div><label for="chapter">Zakres rozdziałów</label><select id="chapter"><option value="all">Cały sylabus</option><option value="1">1. Podstawy testowania</option><option value="2">2. Testowanie w cyklu życia</option><option value="3">3. Testowanie statyczne</option><option value="4">4. Analiza i projektowanie testów</option><option value="5">5. Zarządzanie testami</option><option value="6">6. Narzędzia testowe</option></select></div>
+<div><label for="mode">Tryb</label><select id="mode"><option value="exam">Egzamin — bez podpowiedzi</option><option value="learn">Nauka — wyjaśnienie po odpowiedzi</option></select></div>
+</div>
+<p class="muted">Standardowy CTFL: 40 pytań, 1 punkt za pytanie, próg 26/40 (65%). Przy krótszych sesjach próg 65% jest liczony proporcjonalnie. Pytania wielokrotnego wyboru są punktowane tylko za dokładny zestaw odpowiedzi.</p>
+<div class="actions"><button id="start">Rozpocznij losowanie</button><button class="secondary" id="importBtn">Wczytaj własne pytania (JSON)</button><button class="secondary" id="downloadBank">Pobierz bazę pytań (JSON)</button><input id="importFile" type="file" accept=".json,application/json" class="hidden"></div>
+<p id="bankInfo" class="muted"></p>
+</section>
+
+<section id="quiz" class="hidden">
+<div class="panel">
+<div><span id="counter" class="pill"></span><span id="chapterTag" class="pill"></span><span id="levelTag" class="pill"></span><span id="typeTag" class="pill"></span></div>
+<div class="progress"><div id="bar"></div></div>
+<div class="muted"><span id="answered">0</span> odpowiedziano · <span id="points">0</span> pkt na razie</div>
+</div>
+<div class="question">
+<h2 id="qtext"></h2><p id="instruction" class="muted"></p>
+<div id="options"></div>
+<div id="feedback" class="feedback hidden"></div>
+<div class="actions"><button id="check">Zatwierdź odpowiedź</button><button id="next" class="hidden">Następne pytanie</button><button id="finishEarly" class="secondary">Zakończ sesję</button></div>
+</div>
+</section>
+
+<section id="summary" class="hidden">
+<div class="result">
+<h2>Wynik sesji</h2><div class="score" id="score"></div><p id="passline"></p><p id="summaryText"></p>
+<div class="grid"><div><b id="correctCount"></b><div class="muted">Poprawne</div></div><div><b id="wrongCount"></b><div class="muted">Błędne / bez odpowiedzi</div></div><div><b id="percent"></b><div class="muted">Procent</div></div></div>
+</div>
+<div class="panel"><h2>Wynik według rozdziału</h2><div id="byChapter"></div></div>
+<div class="panel"><h2>Twoje błędy</h2><p class="muted">Raport zawiera treść pytania, Twoją odpowiedź, poprawną odpowiedź, wyjaśnienie, identyfikator celu nauczania i rozdział sylabusa.</p><div class="actions"><button id="copyReport">Kopiuj raport błędów (Markdown)</button><button class="secondary" id="downloadReport">Pobierz raport (.md)</button><button class="secondary" id="downloadJson">Pobierz raport (JSON)</button><button class="secondary" id="retryWrong">Przećwicz błędne pytania</button><button class="secondary" id="newQuiz">Nowa sesja</button></div><p id="copyStatus" class="muted"></p></div>
+<div id="review"></div>
+</section>
+
+<section class="panel">
+<h2>Jak dodawać nowe pytania?</h2>
+<p>Użyj przycisku „Pobierz bazę pytań (JSON)”, dopisz obiekty do tablicy <code>questions</code> i zaimportuj plik. Aplikacja sprawdzi podstawową strukturę. Nie nadpisuje istniejących pytań — łączy bazę po identyfikatorze.</p>
+<p>Każde pytanie ma: <code>id</code>, <code>chapter</code>, <code>section</code>, <code>objective</code>, <code>level</code>, <code>type</code>, <code>question</code>, <code>options</code>, <code>answer</code>, <code>explanation</code> oraz opcjonalne <code>whyNot</code>.</p>
+<details><summary>Przykładowy format pytania</summary><pre>{
+  "id": "CTFL-4.2-custom-001",
+  "chapter": 4,
+  "section": "4.2.2 Analiza wartości brzegowych",
+  "objective": "FL-4.2.2",
+  "level": "K3",
+  "type": "single",
+  "question": "Który zestaw realizuje 2-value BVA dla zakresu [1, 5]?",
+  "options": [
+    {"id":"A","text":"1, 5"},
+    {"id":"B","text":"0, 1, 5, 6"},
+    {"id":"C","text":"0, 1, 2, 4, 5, 6"},
+    {"id":"D","text":"2, 3, 4"}
+  ],
+  "answer": ["B"],
+  "explanation": "Dla każdej granicy wybieramy granicę i sąsiada po stronie sąsiedniej klasy.",
+  "whyNot": {"A":"Brak sąsiadów.","C":"To zestaw 3-value.","D":"Wartości wewnętrzne."}
+}</pre></details>
+</section>
+</main>
+<script>
+const seedQuestions = [
+{id:"Q001",chapter:1,section:"1.1 Co to jest testowanie?",objective:"FL-1.1.1",level:"K2",type:"single",question:"Które stwierdzenie najlepiej opisuje jeden z głównych celów testowania?",options:[{id:"A",text:"Udowodnienie, że oprogramowanie nie zawiera defektów."},{id:"B",text:"Zmniejszenie ryzyka awarii i dostarczenie informacji o jakości."},{id:"C",text:"Zagwarantowanie, że każdy możliwy przypadek został wykonany."},{id:"D",text:"Zastąpienie działań zapewnienia jakości."}],answer:["B"],explanation:"Testowanie może ujawnić defekty i dostarczyć informacji o jakości oraz ryzyku. Nie dowodzi braku defektów ani nie gwarantuje pełnego przetestowania.",whyNot:{A:"Testowanie nie dowodzi braku defektów.",C:"Wyczerpujące testowanie zwykle jest niemożliwe.",D:"Testowanie jest częścią szerszego zarządzania jakością."}},
+{id:"Q002",chapter:1,section:"1.2 Dlaczego testowanie jest potrzebne?",objective:"FL-1.2.1",level:"K2",type:"single",question:"Zespół znajduje defekt w kodzie. Po wdrożeniu defekt powoduje nieprawidłowy wynik widoczny dla użytkownika. Która kolejność pojęć jest poprawna?",options:[{id:"A",text:"Awaria → błąd człowieka → defekt"},{id:"B",text:"Defekt → błąd człowieka → awaria"},{id:"C",text:"Błąd człowieka może wprowadzić defekt, którego wykonanie może spowodować awarię."},{id:"D",text:"Defekt i awaria oznaczają dokładnie to samo."}],answer:["C"],explanation:"Błąd człowieka (error) może doprowadzić do defektu w artefakcie. Gdy kod z defektem zostanie wykonany, może wystąpić awaria.",whyNot:{A:"Odwrócono typowy łańcuch przyczynowy.",B:"Defekt nie jest źródłem błędu człowieka.",D:"Defekt istnieje w artefakcie; awaria jest obserwowalnym nieprawidłowym działaniem."}},
+{id:"Q003",chapter:1,section:"1.3 Zasady testowania",objective:"FL-1.3.1",level:"K1",type:"single",question:"Która zasada testowania mówi, że testowanie zależy od kontekstu?",options:[{id:"A",text:"Testowanie wykazuje obecność defektów."},{id:"B",text:"Testowanie wyczerpujące jest niemożliwe."},{id:"C",text:"Testowanie zależy od kontekstu."},{id:"D",text:"Paradoks pestycydów."}],answer:["C"],explanation:"Zakres i sposób testowania zależą m.in. od rodzaju systemu, ryzyka, celów i ograniczeń projektu."},
+{id:"Q004",chapter:1,section:"1.4 Działania i zadania testowe",objective:"FL-1.4.1",level:"K2",type:"single",question:"Która aktywność przede wszystkim polega na analizie podstawy testów i identyfikacji testowalnych cech?",options:[{id:"A",text:"Testowanie implementacji"},{id:"B",text:"Analiza testów"},{id:"C",text:"Zamykanie testów"},{id:"D",text:"Monitorowanie testów"}],answer:["B"],explanation:"Analiza testów odpowiada na pytanie „co testować?” i identyfikuje warunki testowe na podstawie podstawy testów."},
+{id:"Q005",chapter:1,section:"1.5 Psychologia testowania",objective:"FL-1.5.1",level:"K2",type:"single",question:"Tester formułuje raport defektu w sposób neutralny, opisując fakty i kroki odtworzenia. Jaki problem pomaga w ten sposób ograniczyć?",options:[{id:"A",text:"Efekt potwierdzenia i konflikt interpersonalny"},{id:"B",text:"Wyczerpujące testowanie"},{id:"C",text:"Brak pokrycia instrukcji"},{id:"D",text:"Nadmierną automatyzację"}],answer:["A"],explanation:"Komunikacja oparta na faktach i współpracy ogranicza defensywne reakcje i wpływ uprzedzeń."},
+{id:"Q006",chapter:2,section:"2.1 Testowanie w kontekście cyklu życia",objective:"FL-2.1.1",level:"K2",type:"single",question:"Które stwierdzenie o podejściu shift-left jest poprawne?",options:[{id:"A",text:"Testowanie należy wykonywać wyłącznie przed rozpoczęciem kodowania."},{id:"B",text:"Część działań testowych przesuwa się na wcześniejsze etapy cyklu życia."},{id:"C",text:"Testowanie systemowe zastępuje testowanie komponentów."},{id:"D",text:"Shift-left oznacza automatyzację wszystkich testów."}],answer:["B"],explanation:"Shift-left oznacza wcześniejsze angażowanie działań testowych, np. przeglądy wymagań i wczesne testowanie."},
+{id:"Q007",chapter:2,section:"2.2 Poziomy testowania",objective:"FL-2.2.1",level:"K2",type:"single",question:"Testowanie interakcji pomiędzy systemem a zewnętrzną usługą płatniczą jest przede wszystkim przykładem którego poziomu?",options:[{id:"A",text:"Testowanie komponentowe"},{id:"B",text:"Testowanie integracji komponentów"},{id:"C",text:"Testowanie integracji systemów"},{id:"D",text:"Testowanie akceptacyjne"}],answer:["C"],explanation:"Integracja systemów koncentruje się na interfejsach i interakcjach pomiędzy systemami."},
+{id:"Q008",chapter:2,section:"2.3 Typy testów",objective:"FL-2.3.1",level:"K2",type:"single",question:"Sprawdzenie, czy aplikacja obsługuje 5 000 jednoczesnych użytkowników przy akceptowalnym czasie odpowiedzi, to przede wszystkim:",options:[{id:"A",text:"Testowanie funkcjonalne"},{id:"B",text:"Testowanie wydajności"},{id:"C",text:"Testowanie potwierdzające"},{id:"D",text:"Testowanie regresji"}],answer:["B"],explanation:"Wydajność jest charakterystyką jakościową niefunkcjonalną."},
+{id:"Q009",chapter:2,section:"2.4 Testowanie utrzymaniowe",objective:"FL-2.4.1",level:"K2",type:"single",question:"Która sytuacja typowo wymaga testowania utrzymaniowego?",options:[{id:"A",text:"Pierwsze testy nowo tworzonego komponentu"},{id:"B",text:"Migracja danych do nowego środowiska produkcyjnego"},{id:"C",text:"Przegląd wymagań przed implementacją"},{id:"D",text:"Tworzenie planu testów dla nowego projektu"}],answer:["B"],explanation:"Testowanie utrzymaniowe może być potrzebne m.in. po zmianach, migracji, wycofaniu lub aktualizacji środowiska."},
+{id:"Q010",chapter:3,section:"3.1 Podstawy testowania statycznego",objective:"FL-3.1.1",level:"K2",type:"single",question:"Co odróżnia testowanie statyczne od dynamicznego?",options:[{id:"A",text:"Statyczne wymaga uruchomienia programu, dynamiczne nie."},{id:"B",text:"Statyczne ocenia artefakty bez wykonywania testowanego kodu."},{id:"C",text:"Statyczne wykrywa wyłącznie defekty wydajności."},{id:"D",text:"Statyczne może być stosowane tylko do kodu źródłowego."}],answer:["B"],explanation:"Testowanie statyczne obejmuje np. przeglądy i analizę statyczną artefaktów bez wykonywania testowanego oprogramowania."},
+{id:"Q011",chapter:3,section:"3.2 Proces przeglądu",objective:"FL-3.2.1",level:"K2",type:"single",question:"Która rola jest odpowiedzialna za prowadzenie spotkania przeglądowego i dbanie o jego efektywność?",options:[{id:"A",text:"Autor"},{id:"B",text:"Moderator"},{id:"C",text:"Kierownik testów"},{id:"D",text:"Analityk biznesowy"}],answer:["B"],explanation:"Moderator (facilitator) prowadzi przegląd i wspiera jego sprawny przebieg."},
+{id:"Q012",chapter:4,section:"4.1 Przegląd technik testowania",objective:"FL-4.1.1",level:"K2",type:"single",question:"Tester wyprowadza testy z wymagań i oczekiwanego zachowania systemu, nie analizując kodu. To podejście:",options:[{id:"A",text:"Czarnoskrzynkowe"},{id:"B",text:"Białoskrzynkowe"},{id:"C",text:"Oparte wyłącznie na doświadczeniu"},{id:"D",text:"Statyczne"}],answer:["A"],explanation:"Techniki czarnoskrzynkowe bazują na specyfikacji lub zachowaniu bez wglądu w wewnętrzną strukturę."},
+{id:"Q013",chapter:4,section:"4.2.1 Podział na klasy równoważności",objective:"FL-4.2.1",level:"K3",type:"single",question:"Pole przyjmuje całkowite wartości od 10 do 20 włącznie. Przy założeniu trzech klas: poniżej zakresu, poprawna, powyżej zakresu — który zestaw reprezentantów pokrywa wszystkie klasy?",options:[{id:"A",text:"10, 20"},{id:"B",text:"9, 15, 21"},{id:"C",text:"11, 19"},{id:"D",text:"9, 10, 20, 21"}],answer:["B"],explanation:"Po jednym reprezentancie z każdej klasy: 9 z klasy dolnej, 15 z poprawnej, 21 z górnej."},
+{id:"Q014",chapter:4,section:"4.2.1 Podział na klasy równoważności",objective:"FL-4.2.1",level:"K3",type:"single",question:"Dwa pola mają po dwie klasy: poprawną i niepoprawną. Które kryterium wymaga użycia każdej klasy każdego wejścia co najmniej raz, ale nie wszystkich kombinacji?",options:[{id:"A",text:"All combinations"},{id:"B",text:"Each choice"},{id:"C",text:"All transitions"},{id:"D",text:"3-value BVA"}],answer:["B"],explanation:"Each Choice coverage wymaga użycia każdej klasy z każdego zestawu klas przynajmniej raz, ale nie pełnej kombinatoryki."},
+{id:"Q015",chapter:4,section:"4.2.2 Analiza wartości brzegowych",objective:"FL-4.2.2",level:"K3",type:"single",question:"Dopuszczalny zakres liczb całkowitych to [1, 5]. Który zestaw realizuje 2-value BVA dla obu granic?",options:[{id:"A",text:"1, 5"},{id:"B",text:"0, 1, 5, 6"},{id:"C",text:"0, 1, 2, 4, 5, 6"},{id:"D",text:"2, 3, 4"}],answer:["B"],explanation:"2-value wybiera wartość graniczną oraz najbliższego sąsiada z sąsiedniej klasy: 0,1 oraz 5,6.",whyNot:{A:"Nie uwzględnia sąsiadów granic.",C:"To zestaw 3-value BVA.",D:"To wartości wewnętrzne, bez granic."}},
+{id:"Q016",chapter:4,section:"4.2.2 Analiza wartości brzegowych",objective:"FL-4.2.2",level:"K3",type:"single",question:"Dla zakresu [18, 65] wartości całkowitych, który zestaw odpowiada 3-value BVA?",options:[{id:"A",text:"17, 18, 65, 66"},{id:"B",text:"18, 19, 64, 65"},{id:"C",text:"17, 18, 19, 64, 65, 66"},{id:"D",text:"18, 32, 65"}],answer:["C"],explanation:"Dla każdej granicy bierzemy granicę i sąsiadów po obu stronach: 17,18,19 oraz 64,65,66."},
+{id:"Q017",chapter:4,section:"4.2.3 Testowanie tablic decyzyjnych",objective:"FL-4.2.3",level:"K3",type:"single",question:"Pełna tablica decyzyjna zawiera 3 niezależne warunki boolowskie. Ile kombinacji warunków ma przed redukcją?",options:[{id:"A",text:"3"},{id:"B",text:"6"},{id:"C",text:"8"},{id:"D",text:"9"}],answer:["C"],explanation:"Każdy warunek ma dwie wartości, więc liczba kombinacji to 2^3 = 8."},
+{id:"Q018",chapter:4,section:"4.2.3 Testowanie tablic decyzyjnych",objective:"FL-4.2.3",level:"K2",type:"single",question:"Co oznacza symbol „--” w ograniczonej tablicy decyzyjnej?",options:[{id:"A",text:"Warunek jest zawsze fałszywy."},{id:"B",text:"Kombinacja jest niewykonalna."},{id:"C",text:"Wartość warunku nie wpływa na wynik danej reguły."},{id:"D",text:"Akcja nie może zostać wykonana."}],answer:["C"],explanation:"„--” oznacza, że wartość danego warunku nie ma znaczenia dla akcji w tej regule. N/A oznacza kombinację niewykonalną."},
+{id:"Q019",chapter:4,section:"4.2.3 Testowanie tablic decyzyjnych",objective:"FL-4.2.3",level:"K3",type:"single",question:"W pełnej tablicy 3 warunków boolowskich jedna kombinacja jest niewykonalna. Ile wykonalnych reguł należy pokryć?",options:[{id:"A",text:"6"},{id:"B",text:"7"},{id:"C",text:"8"},{id:"D",text:"9"}],answer:["B"],explanation:"Pełna tablica ma 8 kombinacji; po wykluczeniu jednej niewykonalnej pozostaje 7 wykonalnych reguł."},
+{id:"Q020",chapter:4,section:"4.2.4 Testowanie przejść stanów",objective:"FL-4.2.4",level:"K3",type:"single",question:"Które kryterium pokrycia wymaga próby wykonania przejść niepoprawnych?",options:[{id:"A",text:"All states"},{id:"B",text:"Valid transitions"},{id:"C",text:"All transitions"},{id:"D",text:"Each choice"}],answer:["C"],explanation:"All transitions obejmuje wykonanie wszystkich poprawnych przejść i próbę wykonania wszystkich niepoprawnych przejść."},
+{id:"Q021",chapter:4,section:"4.2.4 Testowanie przejść stanów",objective:"FL-4.2.4",level:"K2",type:"single",question:"Które stwierdzenie o kryteriach STT jest prawdziwe?",options:[{id:"A",text:"100% all states zawsze gwarantuje 100% valid transitions."},{id:"B",text:"100% valid transitions gwarantuje 100% all states."},{id:"C",text:"100% valid transitions gwarantuje 100% all transitions."},{id:"D",text:"All states wymaga prób niepoprawnych przejść."}],answer:["B"],explanation:"Każde poprawne przejście łączy stany, więc wykonanie wszystkich poprawnych przejść odwiedza wszystkie stany modelu. Odwrotna implikacja nie zachodzi."},
+{id:"Q022",chapter:4,section:"4.3 Techniki testowania białoskrzynkowego",objective:"FL-4.3.1",level:"K2",type:"single",question:"Co mierzy pokrycie instrukcji?",options:[{id:"A",text:"Odsetek możliwych ścieżek wykonania"},{id:"B",text:"Odsetek wykonywalnych instrukcji, które zostały wykonane"},{id:"C",text:"Odsetek warunków logicznych, które przyjęły obie wartości"},{id:"D",text:"Odsetek wymagań z testami"}],answer:["B"],explanation:"Statement coverage mierzy, jaki odsetek instrukcji wykonywalnych został wykonany przez testy."},
+{id:"Q023",chapter:4,section:"4.3 Techniki testowania białoskrzynkowego",objective:"FL-4.3.2",level:"K2",type:"single",question:"Które stwierdzenie poprawnie opisuje relację pokrycia gałęzi i instrukcji?",options:[{id:"A",text:"100% pokrycia instrukcji zawsze gwarantuje 100% pokrycia gałęzi."},{id:"B",text:"100% pokrycia gałęzi gwarantuje 100% pokrycia instrukcji."},{id:"C",text:"Pokrycie gałęzi i instrukcji są niezależne."},{id:"D",text:"Pokrycie instrukcji jest silniejsze niż pokrycie gałęzi."}],answer:["B"],explanation:"Wykonanie każdej gałęzi oznacza wykonanie instrukcji osiągalnych na tych gałęziach. 100% instrukcji nie musi wykonać każdej gałęzi."},
+{id:"Q024",chapter:4,section:"4.4 Techniki testowania oparte na doświadczeniu",objective:"FL-4.4.1",level:"K2",type:"single",question:"Tester wykorzystuje wiedzę o typowych błędach programistów i wcześniejszych awariach, aby zaprojektować testy. To przykład:",options:[{id:"A",text:"Analizy wartości brzegowych"},{id:"B",text:"Zgadywania błędów (error guessing)"},{id:"C",text:"Testowania tablic decyzyjnych"},{id:"D",text:"Testowania przejść stanów"}],answer:["B"],explanation:"Error guessing wykorzystuje doświadczenie testera, wiedzę o defektach i typowych pomyłkach."},
+{id:"Q025",chapter:4,section:"4.4 Techniki testowania oparte na doświadczeniu",objective:"FL-4.4.2",level:"K2",type:"single",question:"Które stwierdzenie najlepiej opisuje testowanie eksploracyjne?",options:[{id:"A",text:"Testy są wykonywane wyłącznie z kompletnych, wcześniej zatwierdzonych przypadków."},{id:"B",text:"Projektowanie, wykonywanie i uczenie się z testów zachodzą równolegle."},{id:"C",text:"Tester nie dokumentuje żadnych wyników."},{id:"D",text:"To synonim testowania losowego."}],answer:["B"],explanation:"W testowaniu eksploracyjnym tester dynamicznie dostosowuje testy na podstawie zdobytej wiedzy."},
+{id:"Q026",chapter:5,section:"5.1 Planowanie testów",objective:"FL-5.1.1",level:"K2",type:"single",question:"Który element powinien znaleźć się w planie testów?",options:[{id:"A",text:"Wyłącznie lista wszystkich defektów w kodzie"},{id:"B",text:"Cele, zakres, podejście, zasoby, harmonogram i ryzyka testowe"},{id:"C",text:"Pełna implementacja testowanego systemu"},{id:"D",text:"Tylko nazwiska testerów"}],answer:["B"],explanation:"Plan testów opisuje m.in. cele, zakres, podejście, zasoby, harmonogram, ryzyka i kryteria."},
+{id:"Q027",chapter:5,section:"5.2 Zarządzanie ryzykiem",objective:"FL-5.2.1",level:"K2",type:"single",question:"Ryzyko produktowe dotyczy przede wszystkim:",options:[{id:"A",text:"Sposobu prowadzenia projektu"},{id:"B",text:"Możliwych problemów z jakością produktu"},{id:"C",text:"Dostępności testerów w zespole"},{id:"D",text:"Opóźnienia zakupu licencji narzędzia"}],answer:["B"],explanation:"Ryzyko produktowe wiąże się z możliwością, że produkt nie spełni oczekiwań jakościowych lub potrzeb użytkownika."},
+{id:"Q028",chapter:5,section:"5.2 Zarządzanie ryzykiem",objective:"FL-5.2.2",level:"K2",type:"single",question:"W analizie ryzyka produktowego poziom ryzyka jest zwykle określany na podstawie:",options:[{id:"A",text:"Prawdopodobieństwa i wpływu"},{id:"B",text:"Kosztu licencji i liczby testerów"},{id:"C",text:"Liczby przypadków testowych"},{id:"D",text:"Wyłącznie priorytetu biznesowego"}],answer:["A"],explanation:"Poziom ryzyka jest oceniany przez prawdopodobieństwo wystąpienia i wpływ konsekwencji."},
+{id:"Q029",chapter:5,section:"5.3 Monitorowanie i kontrola testów",objective:"FL-5.3.1",level:"K2",type:"single",question:"Czym różni się monitorowanie testów od kontroli testów?",options:[{id:"A",text:"Monitorowanie zbiera informacje o postępie; kontrola podejmuje działania korygujące."},{id:"B",text:"To dokładnie te same działania."},{id:"C",text:"Kontrola występuje wyłącznie po zakończeniu projektu."},{id:"D",text:"Monitorowanie polega wyłącznie na raportowaniu defektów."}],answer:["A"],explanation:"Monitorowanie porównuje postęp z planem i dostarcza informacji; kontrola obejmuje działania wpływające na przebieg testów."},
+{id:"Q030",chapter:5,section:"5.4 Zarządzanie konfiguracją",objective:"FL-5.4.1",level:"K2",type:"single",question:"Jaki jest główny cel zarządzania konfiguracją w testowaniu?",options:[{id:"A",text:"Zagwarantowanie, że nie pojawią się defekty"},{id:"B",text:"Zapewnienie identyfikowalności i kontrolowania wersji elementów testowych"},{id:"C",text:"Zastąpienie zarządzania testami"},{id:"D",text:"Automatyczne generowanie przypadków testowych"}],answer:["B"],explanation:"Configuration management pomaga jednoznacznie identyfikować wersje i kontrolować zmiany artefaktów."},
+{id:"Q031",chapter:5,section:"5.5 Zarządzanie defektami",objective:"FL-5.5.1",level:"K2",type:"single",question:"Która informacja jest szczególnie istotna w raporcie defektu?",options:[{id:"A",text:"Subiektywna ocena autora kodu"},{id:"B",text:"Kroki odtworzenia, środowisko, oczekiwany i rzeczywisty rezultat"},{id:"C",text:"Wyłącznie nazwa testera"},{id:"D",text:"Przypuszczalna przyczyna bez dowodów"}],answer:["B"],explanation:"Raport powinien umożliwiać zrozumienie i odtworzenie problemu oraz porównanie wyniku oczekiwanego z rzeczywistym."},
+{id:"Q032",chapter:5,section:"5.1 Estymacja testów",objective:"FL-5.1.3",level:"K2",type:"single",question:"Która technika estymacji wykorzystuje dane z podobnych wcześniejszych projektów?",options:[{id:"A",text:"Estymacja oparta na metrykach"},{id:"B",text:"Analiza wartości brzegowych"},{id:"C",text:"Testowanie przejść stanów"},{id:"D",text:"Pokrycie instrukcji"}],answer:["A"],explanation:"Podejście metryczne wykorzystuje dane historyczne i miary, np. produktywność lub rozmiar."},
+{id:"Q033",chapter:6,section:"6.1 Wsparcie narzędziowe dla testowania",objective:"FL-6.1.1",level:"K2",type:"single",question:"Które stwierdzenie najlepiej opisuje korzyść z narzędzi testowych?",options:[{id:"A",text:"Narzędzia eliminują potrzebę krytycznego myślenia testera."},{id:"B",text:"Mogą zwiększyć efektywność i powtarzalność, ale wymagają właściwego wdrożenia i utrzymania."},{id:"C",text:"Każdy test powinien być zautomatyzowany."},{id:"D",text:"Narzędzia zawsze obniżają całkowity koszt testowania."}],answer:["B"],explanation:"Narzędzia wspierają pracę, ale wprowadzają też koszty, ryzyka i potrzebę utrzymania."},
+{id:"Q034",chapter:6,section:"6.2 Korzyści i ryzyka automatyzacji",objective:"FL-6.2.1",level:"K2",type:"single",question:"Co jest przykładem ryzyka automatyzacji testów?",options:[{id:"A",text:"Szybsze wykonywanie powtarzalnych testów"},{id:"B",text:"Większa powtarzalność wyników"},{id:"C",text:"Koszt utrzymania skryptów po częstych zmianach aplikacji"},{id:"D",text:"Możliwość uruchamiania testów bez ręcznego klikania"}],answer:["C"],explanation:"Automatyzacja może generować koszty utrzymania, fałszywe alarmy i zależność od narzędzi."},
+{id:"Q035",chapter:4,section:"4.2.1 Podział na klasy równoważności",objective:"FL-4.2.1",level:"K3",type:"multiple",question:"W formularzu dwa pola mają po jednej klasie poprawnej i niepoprawnej. Które stwierdzenia są prawdziwe? Wybierz TRZY odpowiedzi.",options:[{id:"A",text:"Each Choice wymaga pokrycia każdej klasy każdego pola co najmniej raz."},{id:"B",text:"Each Choice zawsze wymaga czterech testów dla dwóch pól binarnych."},{id:"C",text:"Pełne pokrycie kombinacji wymaga przetestowania czterech kombinacji."},{id:"D",text:"Dwa testy mogą wystarczyć do Each Choice."},{id:"E",text:"Niepoprawne klasy należy zawsze łączyć w jednym teście."}],answer:["A","C","D"],explanation:"Each Choice wymaga użycia każdej klasy każdego pola co najmniej raz; przy dwóch polach binarnych dwa testy mogą wystarczyć. Pełne kombinacje wymagają czterech testów (2×2).",whyNot:{B:"To liczba kombinacji dla all combinations, nie Each Choice.",E:"Niepoprawne klasy należy testować osobno, aby uniknąć maskowania defektów."}},
+{id:"Q036",chapter:4,section:"4.2.2 Analiza wartości brzegowych",objective:"FL-4.2.2",level:"K3",type:"multiple",question:"Wymaganie: liczba całkowita musi być większa niż 10 i nie większa niż 20. Które wartości są poprawne? Wybierz DWIE odpowiedzi.",options:[{id:"A",text:"10"},{id:"B",text:"11"},{id:"C",text:"20"},{id:"D",text:"21"},{id:"E",text:"9"}],answer:["B","C"],explanation:"Warunek to 10 < x ≤ 20. Zatem 11 i 20 są poprawne, a 10 jest wykluczone przez ostrą nierówność."},
+{id:"Q037",chapter:4,section:"4.2.3 Testowanie tablic decyzyjnych",objective:"FL-4.2.3",level:"K3",type:"multiple",question:"Które stwierdzenia dotyczące tablic decyzyjnych są poprawne? Wybierz DWIE odpowiedzi.",options:[{id:"A",text:"Kolumna reprezentuje regułę, czyli kombinację warunków."},{id:"B",text:"Pełna tablica dla n niezależnych warunków boolowskich ma n² kolumn."},{id:"C",text:"„--” oznacza, że warunek nie wpływa na akcję w danej regule."},{id:"D",text:"Kombinacje niewykonalne muszą być testowane jako normalne reguły."}],answer:["A","C"],explanation:"Reguła jest kolumną z kombinacją wartości warunków i akcjami. „--” oznacza warunek nieistotny. Pełna tablica boolowska ma 2^n kombinacji."},
+{id:"Q038",chapter:4,section:"4.2.4 Testowanie przejść stanów",objective:"FL-4.2.4",level:"K3",type:"multiple",question:"Które stwierdzenia o pokryciu przejść stanów są prawdziwe? Wybierz DWIE odpowiedzi.",options:[{id:"A",text:"All states wymaga odwiedzenia każdego stanu."},{id:"B",text:"Valid transitions wymaga prób wykonania przejść niepoprawnych."},{id:"C",text:"All transitions obejmuje poprawne i niepoprawne przejścia."},{id:"D",text:"100% all states gwarantuje 100% valid transitions."}],answer:["A","C"],explanation:"All states obejmuje stany, valid transitions poprawne przejścia, a all transitions oba rodzaje. Odwiedzenie stanów nie gwarantuje wykonania każdego przejścia."},
+{id:"Q039",chapter:1,section:"1.3 Zasady testowania",objective:"FL-1.3.1",level:"K2",type:"single",question:"Zespół od miesięcy uruchamia ten sam zestaw testów. Nowe defekty są coraz rzadziej wykrywane. Która zasada jest najbardziej bezpośrednio związana z tą sytuacją?",options:[{id:"A",text:"Paradoks pestycydów"},{id:"B",text:"Testowanie zależy od kontekstu"},{id:"C",text:"Wczesne testowanie"},{id:"D",text:"Brak defektów jest błędem"}],answer:["A"],explanation:"Powtarzanie tych samych testów z czasem staje się mniej skuteczne w znajdowaniu nowych defektów; testy należy przeglądać i urozmaicać."},
+{id:"Q040",chapter:5,section:"5.2 Zarządzanie ryzykiem",objective:"FL-5.2.1",level:"K2",type:"single",question:"W aplikacji bankowej błąd naliczania odsetek jest mało prawdopodobny, ale jego wpływ byłby bardzo wysoki. Jak należy traktować takie ryzyko?",options:[{id:"A",text:"Zignorować, bo prawdopodobieństwo jest małe."},{id:"B",text:"Ocenić poziom ryzyka na podstawie łącznej oceny prawdopodobieństwa i wpływu."},{id:"C",text:"Automatycznie uznać za ryzyko niskie."},{id:"D",text:"Traktować jako ryzyko projektowe, bo dotyczy aplikacji."}],answer:["B"],explanation:"Ocena ryzyka uwzględnia zarówno prawdopodobieństwo, jak i wpływ. Niski poziom prawdopodobieństwa nie wystarcza do zignorowania bardzo poważnych konsekwencji."}
+];
+
+let bank=[...seedQuestions], session=[], index=0, results=[], mode="exam";
+const $=id=>document.getElementById(id);
+const chapterNames={1:"Podstawy testowania",2:"Testowanie w cyklu życia",3:"Testowanie statyczne",4:"Analiza i projektowanie testów",5:"Zarządzanie testami",6:"Narzędzia testowe"};
+const shuffle=a=>{let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
+const same=(a,b)=>a.length===b.length&&[...a].sort().every((x,i)=>x===[...b].sort()[i]);
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function updateBankInfo(){$("bankInfo").textContent=`Baza: ${bank.length} pytań · ${new Set(bank.map(q=>q.chapter)).size} rozdziałów · ${bank.filter(q=>q.type==="multiple").length} wielokrotnego wyboru.`}
+updateBankInfo();
+$("start").onclick=()=>{
+ const ch=$("chapter").value;let pool=bank.filter(q=>ch==="all"||String(q.chapter)===ch);
+ if(!pool.length){alert("Brak pytań w wybranym zakresie.");return}
+ let n=$("count").value==="all"?pool.length:Math.min(Number($("count").value),pool.length);
+ session=shuffle(pool).slice(0,n);index=0;results=[];mode=$("mode").value;
+ $("setup").classList.add("hidden");$("summary").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion();
+};
+function renderQuestion(){
+ const q=session[index];$("counter").textContent=`Pytanie ${index+1}/${session.length}`;
+ $("chapterTag").textContent=`Rozdział ${q.chapter}: ${chapterNames[q.chapter]}`;
+ $("levelTag").textContent=q.level;$("typeTag").textContent=q.type==="multiple"?"Wielokrotny wybór":"Jedna odpowiedź";
+ $("bar").style.width=`${index/session.length*100}%`;$("answered").textContent=results.length;$("points").textContent=results.filter(r=>r.correct).length;
+ $("qtext").textContent=q.question;$("instruction").textContent=q.type==="multiple"?"Zaznacz wszystkie wymagane odpowiedzi. Punkt otrzymasz wyłącznie za dokładny zestaw.":"Wybierz jedną odpowiedź.";
+ $("options").innerHTML=q.options.map(o=>`<label class="option"><input type="${q.type==="multiple"?"checkbox":"radio"}" name="answer" value="${escapeHtml(o.id)}"><span><b>${escapeHtml(o.id)}.</b> ${escapeHtml(o.text)}</span></label>`).join("");
+ $("feedback").className="feedback hidden";$("check").classList.remove("hidden");$("next").classList.add("hidden");
+ $("check").disabled=false;
+}
+$("check").onclick=()=>{
+ const q=session[index],selected=[...document.querySelectorAll('input[name="answer"]:checked')].map(x=>x.value);
+ if(!selected.length){alert("Zaznacz odpowiedź.");return}
+ const correct=same(selected,q.answer);results[index]={id:q.id,selected,correct,question:q};
+ $("check").classList.add("hidden");$("next").classList.remove("hidden");
+ if(mode==="learn")showFeedback(q,selected,correct);
+ else $("feedback").classList.add("hidden");
+ $("answered").textContent=results.length;$("points").textContent=results.filter(r=>r.correct).length;
+};
+function showFeedback(q,selected,correct){
+ let html=`<b>${correct?"Poprawnie.":"Niepoprawnie."}</b><br>${escapeHtml(q.explanation)}<br><br><b>Poprawna odpowiedź:</b> ${q.answer.join(", ")}`;
+ if(q.whyNot)html+="<br><br>"+Object.entries(q.whyNot).map(([k,v])=>`<b>${k}:</b> ${escapeHtml(v)}`).join("<br>");
+ $("feedback").innerHTML=html;$("feedback").className=`feedback ${correct?"correct":"incorrect"}`;
+}
+$("next").onclick=()=>{if(index<session.length-1){index++;renderQuestion()}else finish()};
+$("finishEarly").onclick=()=>{if(confirm("Zakończyć sesję? Pozostałe pytania zostaną uznane za bez odpowiedzi."))finish()};
+function finish(){
+ while(results.length<session.length)results.push({id:session[results.length].id,selected:[],correct:false,question:session[results.length],unanswered:true});
+ $("quiz").classList.add("hidden");$("summary").classList.remove("hidden");
+ let pts=results.filter(r=>r.correct).length,total=session.length,pct=Math.round(pts/total*100),pass=total===40?pts>=26:pct>=65;
+ $("score").textContent=`${pts} / ${total} pkt`;
+ $("passline").innerHTML=`<span class="pill" style="background:${pass?"#e7f5eb":"#fff0ed"}">${pass?"Próg zaliczony":"Poniżej progu"}</span> ${total===40?"Oficjalny próg CTFL: 26/40.":"Próg orientacyjny dla krótszej sesji: 65%."}`;
+ $("summaryText").textContent=pass?"Wynik przekracza przyjęty próg.":"Przejrzyj błędy i powtórz słabsze zagadnienia.";
+ $("correctCount").textContent=pts;$("wrongCount").textContent=total-pts;$("percent").textContent=pct+"%";
+ const groups={};results.forEach(r=>{let c=r.question.chapter;groups[c]??={ok:0,n:0};groups[c].n++;if(r.correct)groups[c].ok++});
+ $("byChapter").innerHTML="<table><thead><tr><th>Rozdział</th><th>Wynik</th><th>Procent</th></tr></thead><tbody>"+Object.keys(groups).sort().map(c=>`<tr><td>${c}. ${chapterNames[c]}</td><td>${groups[c].ok}/${groups[c].n}</td><td>${Math.round(groups[c].ok/groups[c].n*100)}%</td></tr>`).join("")+"</tbody></table>";
+ $("review").innerHTML="<h2>Przegląd odpowiedzi</h2>"+results.map((r,i)=>{let q=r.question;return `<div class="panel"><span class="pill">${q.objective}</span><span class="pill">Rozdział ${q.chapter} · ${escapeHtml(q.section)}</span><h3>${i+1}. ${escapeHtml(q.question)}</h3><p><b>Twoja odpowiedź:</b> ${r.selected.length?r.selected.join(", "):"Brak odpowiedzi"} · <b>Poprawna:</b> ${q.answer.join(", ")}</p><div class="feedback ${r.correct?"correct":"incorrect"}">${escapeHtml(q.explanation)}</div></div>`}).join("");
+}
+function errors(){return results.filter(r=>!r.correct)}
+function reportMarkdown(){
+ let bad=errors();let pts=results.filter(r=>r.correct).length;
+ let out=`# Raport ISTQB CTFL 4.0.1\n\n- Wynik: ${pts}/${results.length} (${Math.round(pts/results.length*100)}%)\n- Błędne / bez odpowiedzi: ${bad.length}\n- Tryb: ${mode==="exam"?"Egzamin":"Nauka"}\n\n`;
+ if(!bad.length)return out+"Brak błędnych odpowiedzi.\n";
+ out+="## Błędy do omówienia\n\n";
+ bad.forEach((r,i)=>{let q=r.question;out+=`### ${i+1}. ${q.id} — ${q.objective}\n\n**Rozdział:** ${q.chapter}. ${chapterNames[q.chapter]} / ${q.section}\n\n**Poziom:** ${q.level}  \n**Pytanie:** ${q.question}\n\n**Opcje:**\n${q.options.map(o=>`- ${o.id}. ${o.text}`).join("\n")}\n\n**Moja odpowiedź:** ${r.selected.join(", ")||"Brak"}  \n**Poprawna odpowiedź:** ${q.answer.join(", ")}\n\n**Wyjaśnienie:** ${q.explanation}\n\n`;
+ if(q.whyNot)out+="**Dlaczego pozostałe odpowiedzi są błędne:**\n"+Object.entries(q.whyNot).map(([k,v])=>`- ${k}: ${v}`).join("\n")+"\n\n";
+ out+="---\n\n";});
+ out+="## Prośba o analizę\nWyjaśnij każde błędne pytanie krok po kroku: jakie pojęcie sprawdza, dlaczego moja odpowiedź jest błędna, dlaczego poprawna jest właściwa, jaki fragment sylabusa CTFL 4.0.1 należy powtórzyć i jak rozpoznać podobną pułapkę na egzaminie. Zidentyfikuj też wzorce moich błędów.\n";
+ return out;
+}
+function reportJSON(){return {schemaVersion:1,standard:"ISTQB CTFL 4.0.1",createdAt:new Date().toISOString(),mode,score:results.filter(r=>r.correct).length,total:results.length,errors:errors().map(r=>({id:r.id,objective:r.question.objective,chapter:r.question.chapter,section:r.question.section,level:r.question.level,type:r.question.type,question:r.question.question,options:r.question.options,selected:r.selected,correctAnswer:r.question.answer,explanation:r.question.explanation,whyNot:r.question.whyNot||{}}))}}
+function download(name,text,type){let blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+$("copyReport").onclick=async()=>{try{await navigator.clipboard.writeText(reportMarkdown());$("copyStatus").textContent="Raport skopiowany. Wklej go w rozmowie, a przeanalizuję błędy."}catch(e){$("copyStatus").textContent="Przeglądarka zablokowała schowek. Użyj pobierania raportu .md."}};
+$("downloadReport").onclick=()=>download("istqb-raport-bledow.md",reportMarkdown(),"text/markdown;charset=utf-8");
+$("downloadJson").onclick=()=>download("istqb-raport-bledow.json",JSON.stringify(reportJSON(),null,2),"application/json");
+$("retryWrong").onclick=()=>{let bad=errors().map(r=>r.question);if(!bad.length){alert("Nie ma błędnych pytań.");return}session=shuffle(bad);index=0;results=[];$("summary").classList.add("hidden");$("quiz").classList.remove("hidden");renderQuestion()};
+$("newQuiz").onclick=()=>{$("summary").classList.add("hidden");$("setup").classList.remove("hidden");updateBankInfo()};
+$("importBtn").onclick=()=>$("importFile").click();
+$("importFile").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let data=JSON.parse(await f.text());let incoming=Array.isArray(data)?data:data.questions;if(!Array.isArray(incoming))throw Error("Plik musi zawierać tablicę pytań lub pole questions.");let ids=new Set(bank.map(q=>q.id)),added=0;for(let q of incoming){if(!q.id||!q.question||!Array.isArray(q.options)||!Array.isArray(q.answer)||!q.explanation||!q.chapter||!q.section||!q.objective)throw Error("Niepoprawna struktura pytania: "+(q.id||"(brak id)"));if(!ids.has(q.id)){bank.push(q);ids.add(q.id);added++}}updateBankInfo();alert(`Dodano ${added} nowych pytań. Pominięto duplikaty ID.`)}catch(err){alert("Nie udało się wczytać: "+err.message)}e.target.value=""};
+$("downloadBank").onclick=()=>download("istqb-ctfl-baza-pytan.json",JSON.stringify({standard:"ISTQB CTFL 4.0.1",questions:bank},null,2),"application/json");
+</script>
+</body></html>
