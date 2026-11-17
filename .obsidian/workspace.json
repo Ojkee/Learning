@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "learning_roadmap.md",
+                "file": "Inspo/hobbies and random.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "learning_roadmap"
+              "title": "hobbies and random"
             }
           }
         ]
@@ -190,6 +190,12 @@
   },
   "active": "a37ce3afa9019bc4",
   "lastOpenFiles": [
+    "Inspo/project-ideas.md",
+    "Inspo/hobbies and random.md",
+    "Inspo/README.md",
+    "Inspo/blogs.md",
+    "Inspo/concepts.md",
+    "learning_roadmap.md",
     "ISTQB/6. Wsparcie narzędziowe.md",
     "ISTQB/5. Zarządzanie czynnościami testowymi.md",
     "ISTQB/4. Analiza i projektowanie testów.md",
@@ -214,15 +220,9 @@
     "Git/Origin.md",
     "Git/Index.md",
     "Git/Hashes.md",
-    "Git/Rebase.md",
     "learning_roadmap.html",
     "Deep Learning/PapersAndBlogs/Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural-Machine-Translation-by-Jointly-Learning-to-Align-and-Translate.pdf",
     "roadmap_ml_dl_checklist.html",
-    "Deep Learning/PapersAndBlogs/Papers/5. Neural Machine Translation by jointly learning to align and translate/Neural Machine Translation by jointly learning to align and translate.md",
-    "Deep Learning/PapersAndBlogs/Blogs/3. Understanding LSTM Networks/Understanding LSTM Networks.md",
-    "Git/Branch.md",
-    "Git/Log.md",
-    "Git/cat-file.md",
     "imgs/Pasted image 20261029104619.png",
     "imgs/Pasted image 20261029104633.png",
     "imgs/Pasted image 20261028121024.png",

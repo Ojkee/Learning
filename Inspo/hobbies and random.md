@@ -1,0 +1,6 @@
+- [ ] Neuropsychologia
+- [ ] Kognitywistyka
+- [ ] Fizyka
+- [ ] Ocaml / Rust / TypeScript
+- [ ] Grecki 
+- [ ] Cuda programming
